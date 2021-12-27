@@ -184,21 +184,21 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/selectTimeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
+        app:layout_constraintStart_toEndOf="@+id/selectDateBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.125"
         app:srcCompat="@drawable/rectangle_1"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/selectDateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -209,26 +209,6 @@
         app:layout_constraintVertical_bias="0.127"
         app:srcCompat="@drawable/rectangle2"
         tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton"
-        app:srcCompat="@drawable/_7_00" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton6"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton6"
-        app:layout_constraintStart_toStartOf="@+id/imageButton6"
-        app:layout_constraintTop_toTopOf="@+id/imageButton6"
-        app:srcCompat="@drawable/_9" />
 
     <Button
         android:id="@+id/activateButton"
@@ -242,6 +222,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/timeView"
+        android:layout_width="83dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/selectTimeBtn"
+        app:layout_constraintEnd_toEndOf="@+id/selectTimeBtn"
+        app:layout_constraintStart_toStartOf="@+id/selectTimeBtn"
+        app:layout_constraintTop_toTopOf="@+id/selectTimeBtn" />
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="83dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/selectDateBtn"
+        app:layout_constraintEnd_toEndOf="@+id/selectDateBtn"
+        app:layout_constraintStart_toStartOf="@+id/selectDateBtn"
+        app:layout_constraintTop_toTopOf="@+id/selectDateBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
