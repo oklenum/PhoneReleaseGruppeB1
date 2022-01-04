@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.navigation.Navigation
 
 /**
@@ -23,7 +24,7 @@ class SecondFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
-        val activateButton = view.findViewById<Button>(R.id.disableButton)
+        val activateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
         activateButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_firstFragment)
         }

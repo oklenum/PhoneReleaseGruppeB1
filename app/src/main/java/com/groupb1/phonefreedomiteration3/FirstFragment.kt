@@ -55,7 +55,7 @@ class FirstFragment : Fragment() {
             showDatePickerDialog()
         }
 
-        val activateButton = view.findViewById<Button>(R.id.activateButton)
+        val activateButton = view.findViewById<ImageButton>(R.id.activateButton)
         activateButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment)
 
