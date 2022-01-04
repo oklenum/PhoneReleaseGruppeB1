@@ -1,13 +1,22 @@
 package com.groupb1.phonefreedomiteration3
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
+import java.time.LocalDate
+import java.time.LocalTime
 import java.util.*
+import android.app.NotificationManager
+import android.content.Context
+import android.content.Intent
+import android.provider.Settings
 
 /**
  * A simple [Fragment] subclass.
@@ -15,25 +24,30 @@ import java.util.*
  * create an instance of this fragment.
  */
 class FirstFragment : Fragment() {
+
     lateinit var timePicker: TimePickerHelper
     lateinit var datePicker: DatePickerHelper
     private lateinit var timeTextView: TextView
     private lateinit var dateTextView: TextView
+    //var notificationManager: NotificationManager = activity.getSystemService(Context.NOTIFICATION_SERVICE)
 
-
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_first, container, false)
-
+        val startTime = LocalTime.of(17, 0).toString()
+        val currentDate = LocalDate.now().toString()
         datePicker = DatePickerHelper(this.requireContext())
         timePicker = TimePickerHelper(this.requireContext(), true, false)
         timeTextView = view.findViewById(R.id.timeView)
         dateTextView = view.findViewById(R.id.dateView)
         val timeButton = view.findViewById<ImageButton>(R.id.selectTimeBtn)
         val dateButton = view.findViewById<ImageButton>(R.id.selectDateBtn)
+        timeTextView.text = startTime
+        dateTextView.text = currentDate
         timeButton.setOnClickListener {
             showTimePickerDialog()
         }
@@ -42,10 +56,14 @@ class FirstFragment : Fragment() {
         }
 
         val activateButton = view.findViewById<Button>(R.id.activateButton)
-        activateButton.setOnClickListener {Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment) }
+        activateButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment)
+
+        }
 
         return view
     }
+
 
     private fun showTimePickerDialog() {
         val cal = Calendar.getInstance()
@@ -72,6 +90,10 @@ class FirstFragment : Fragment() {
                 dateTextView.text = "${dayStr}-${monthStr}-${year}"
             }
         })
+    }
+
+    private fun turnOnDND() {
+
     }
 
 

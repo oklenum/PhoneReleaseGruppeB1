@@ -4,4 +4,9 @@
         android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/storytime" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/poppinsblack" />
 </font-family>

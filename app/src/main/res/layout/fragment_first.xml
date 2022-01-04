@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="-12dp"
+    tools:layout_editor_absoluteY="0dp">
 
     <TextView
         android:id="@+id/phone_freed"
@@ -21,27 +23,27 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.37"
-        app:srcCompat="@drawable/image_10"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/image_10" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.371"
-        app:srcCompat="@drawable/group"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/group" />
 
     <Switch
         android:id="@+id/switch2"
@@ -183,6 +185,7 @@
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="SpeakableTextPresentCheck" />
 
+
     <ImageButton
         android:id="@+id/selectTimeBtn"
         android:layout_width="wrap_content"
@@ -190,64 +193,77 @@
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toEndOf="@+id/selectDateBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125"
-        app:srcCompat="@drawable/rectangle_1"
+        app:layout_constraintVertical_bias="0.157"
+        app:srcCompat="@drawable/button_date"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/selectDateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="48dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127"
-        app:srcCompat="@drawable/rectangle2"
+        app:layout_constraintVertical_bias="0.157"
+        app:srcCompat="@drawable/button_date"
         tools:ignore="SpeakableTextPresentCheck" />
+
+
 
     <Button
         android:id="@+id/activateButton"
-        android:layout_width="300dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="64dp"
-        android:backgroundTint="#647165"
-        android:backgroundTintMode="multiply"
-        android:text="Activate"
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/cta1"
+        android:fontFamily="@font/poppinsblack"
+        android:text="@string/activate"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton"
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/timeView"
-        android:layout_width="83dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="TextView"
         android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:textSize="24dp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/selectTimeBtn"
         app:layout_constraintEnd_toEndOf="@+id/selectTimeBtn"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@+id/selectTimeBtn"
-        app:layout_constraintTop_toTopOf="@+id/selectTimeBtn" />
+        app:layout_constraintTop_toTopOf="@+id/selectTimeBtn"
+        app:layout_constraintVertical_bias="0.473" />
 
     <TextView
         android:id="@+id/dateView"
-        android:layout_width="83dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="TextView"
         android:textColor="#000000"
-        android:gravity="center"
-        android:textSize="24dp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/selectDateBtn"
         app:layout_constraintEnd_toEndOf="@+id/selectDateBtn"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="@+id/selectDateBtn"
-        app:layout_constraintTop_toTopOf="@+id/selectDateBtn" />
+        app:layout_constraintTop_toTopOf="@+id/selectDateBtn"
+        app:layout_constraintVertical_bias="0.475" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
