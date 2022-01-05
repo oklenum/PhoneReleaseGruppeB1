@@ -1,4 +1,4 @@
-package com.groupb1.phonefreedomiteration3
+package com.groupb1.phonefreedom
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.groupb1.phonefreedomiteration3
+package com.groupb1.phonefreedom
 
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
