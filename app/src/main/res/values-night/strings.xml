@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">PhoneFreedomFirst</string>
+    <string name="phone_freed">Phone Freedom</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="activate">Activate</string>
     <string name="deactivate">Deactivate</string>
+
+    <string name="preset1_name">Arbejde</string>
+    <string name="preset2_name">Skole</string>
+    <string name="preset3_name">Rejse</string>
+    <string name="preset4_name">Møde</string>
+    <string name="preset5_name">Sommerhus</string>
+    <string name="preset6_name">Familie Tid</string>
+
+    <string name="preset1_description">Jeg er på arbejde, ringer senere.</string>
+    <string name="preset2_description">Jeg er i skole, ringer senere.</string>
+    <string name="preset3_description">Jeg er på ferie, læg venligst en besked.</string>
+    <string name="preset4_description">Jeg er i et møde, ringer senere.</string>
+    <string name="preset5_description">Jeg er i sommerhus, læg venligst en besked.</string>
+    <string name="preset6_description">Jeg er sammen med familien, ringer senere.</string>
+
+    <string name="delete_this_preset">Delete this preset</string>
+    <string name="add_preset">Add Preset</string>
+    <string name="preset_string">Presets</string>
+    <string name="preset_finder">Preset finder</string>
+    <string name="preset_description_edit_text">Preset Description</string>
+    <string name="preset_name_edit_text">Preset Name</string>
+    <string name="done_button_text">Done</string>
+    <string name="fab_content_description">fab</string>
+    <string name="remove_this_preset">Remove this preset</string>
 </resources>
