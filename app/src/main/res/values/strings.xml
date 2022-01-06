@@ -17,11 +17,11 @@
     <string name="preset6_name">Familie Tid</string>
 
     <string name="preset1_description">Jeg er på arbejde, ringer senere.</string>
-    <string name="preset2_description">Jeg er på arbejde, ringer senere.</string>
-    <string name="preset3_description">Jeg er på arbejde, ringer senere.</string>
-    <string name="preset4_description">Jeg er på arbejde, ringer senere.</string>
-    <string name="preset5_description">Jeg er på arbejde, ringer senere.</string>
-    <string name="preset6_description">Jeg er på arbejde, ringer senere.</string>
+    <string name="preset2_description">Jeg er i skole, ringer senere.</string>
+    <string name="preset3_description">Jeg er på ferie, læg venligst en besked.</string>
+    <string name="preset4_description">Jeg er i et møde, ringer senere.</string>
+    <string name="preset5_description">Jeg er i sommerhus, læg venligst en besked.</string>
+    <string name="preset6_description">Jeg er sammen med familien, ringer senere.</string>
 
     <string name="delete_this_preset">Delete this preset</string>
     <string name="add_preset">Add Preset</string>
