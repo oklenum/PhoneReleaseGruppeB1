@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="presets">
+        <item>Arbejde</item>
+        <item>Skole</item>
+        <item>Møde</item>
+        <item>Rejse</item>
+        <item>Sommerhus</item>
+        <item>Familie Tid</item>
+
+    </string-array>
+</resources>

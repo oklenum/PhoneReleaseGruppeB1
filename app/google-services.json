@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "739084641460",
+    "project_id": "phone-freedom-b1",
+    "storage_bucket": "phone-freedom-b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739084641460:android:4513df2c324bb452f623e1",
+        "android_client_info": {
+          "package_name": "com.groupb1.phonefreedom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739084641460-gideskjst9phftrjqv6tdol42tjpnebq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArUMMgqXSQG1jnVHYtZkfZKigTUUy8e0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739084641460-gideskjst9phftrjqv6tdol42tjpnebq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
