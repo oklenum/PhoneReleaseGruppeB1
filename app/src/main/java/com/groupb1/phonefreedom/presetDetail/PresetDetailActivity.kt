@@ -22,7 +22,7 @@ class PresetDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.preset_view)
+        setContentView(R.layout.preset_detail_activity)
 
         var currentPresetId: Long? = null
 
