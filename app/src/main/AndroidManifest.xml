@@ -20,6 +20,10 @@
         </activity>
         <activity android:name=".addPreset.AddPresetActivity" />
         <activity android:name=".presetDetail.PresetDetailActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

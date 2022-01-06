@@ -13,10 +13,10 @@
         android:id="@+id/phone_freed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinsblack"
+        android:fontFamily="@font/roboto"
         android:text="@string/phone_freed"
         android:textAppearance="@style/phone_freed"
-        android:textColor="#66C61616"
+        android:textColor="#FFFFFF"
         android:textIsSelectable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        app:backgroundTint="#0964ED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -171,6 +172,17 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toStartOf="@+id/phone_freed"
+        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/vectorsetting" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
