@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhoneFreedomIteration3">
         <activity
-            android:name="Permission.MainActivity1"
+            android:name=".permission.MainActivity1"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -1,14 +1,11 @@
-package Permission
+package com.groupb1.phonefreedom.permission
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.navigation.Navigation
 import com.groupb1.phonefreedom.R
 
 class MainActivity1 : AppCompatActivity() {
