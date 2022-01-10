@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.groupb1.phonefreedom">
 
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhoneFreedomIteration3">
         <activity
-            android:name="com.groupb1.phonefreedom.MainActivity"
+            android:name="Permission.MainActivity1"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
