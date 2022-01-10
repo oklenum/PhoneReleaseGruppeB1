@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="presets">
-        <item>Arbejde</item>
-        <item>Skole</item>
-        <item>Møde</item>
-        <item>Rejse</item>
-        <item>Sommerhus</item>
-        <item>Familie Tid</item>
+        <item>Work</item>
+        <item>School</item>
+        <item>Meeting</item>
+        <item>Travel</item>
+        <item>Vacation House</item>
+        <item>Family Time</item>
 
     </string-array>
     <!-- Reply Preference -->
     <string-array name="reply_entries">
-        <item>Svar</item>
-        <item>Svar alle</item>
+        <item>Reply</item>
+        <item>Reply to all</item>
     </string-array>
 
     <string-array name="reply_values">
