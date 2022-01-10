@@ -19,4 +19,19 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="languages">
+        <item>Danish</item>
+        <item>English</item>
+        <item>French</item>
+        <item>Spanish</item>
+    </string-array>
+
+    <string-array name="languages_values">
+        <item>danish</item>
+        <item>english</item>
+        <item>french</item>
+        <item>spanish</item>
+    </string-array>
+
 </resources>

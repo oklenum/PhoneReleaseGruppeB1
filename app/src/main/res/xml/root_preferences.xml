@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory app:title="@string/messages_header">
 
@@ -15,6 +16,18 @@
             app:title="@string/reply_title"
             app:useSimpleSummaryProvider="true" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="Language">
+
+        <ListPreference
+            app:key="language_preferences"
+            android:title="@string/language_string"
+            android:dialogTitle="@string/language_string"
+            android:entries="@array/languages"
+            android:entryValues="@array/languages"
+            app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/sync_header"/>
