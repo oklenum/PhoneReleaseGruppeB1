@@ -6,8 +6,7 @@
     <string name="todo1">TODO1</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="activate">Activate</string>
-    <string name="deactivate">Deactivate</string>
+    <string name="deactivate">Deaktiver</string>
 
     <string name="preset1_name">Arbejde</string>
     <string name="preset2_name">Skole</string>
@@ -23,29 +22,31 @@
     <string name="preset5_description">Jeg er i sommerhus, læg venligst en besked.</string>
     <string name="preset6_description">Jeg er sammen med familien, ringer senere.</string>
 
-    <string name="delete_this_preset">Delete this preset</string>
-    <string name="add_preset">Add Preset</string>
-    <string name="preset_string">Presets</string>
+    <string name="delete_this_preset">Slet denne forindstilling</string>
+    <string name="add_preset">Tilføj forindstilling</string>
+    <string name="preset_string">Forindstillinger</string>
     <string name="preset_finder">Preset finder</string>
-    <string name="preset_description_edit_text">Preset Description</string>
-    <string name="preset_name_edit_text">Preset Name</string>
-    <string name="done_button_text">Done</string>
+    <string name="preset_description_edit_text">Beskrivelse af forindstilling</string>
+    <string name="preset_name_edit_text">Navn på forindstilling</string>
+    <string name="done_button_text">Færdig</string>
     <string name="fab_content_description">fab</string>
-    <string name="remove_this_preset">Remove this preset</string>
+    <string name="remove_this_preset">Slet denne forindstilling</string>
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="messages_header">Beskeder</string>
+    <string name="sync_header" translatable="false">Sync</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="signature_title">Signatur</string>
+    <string name="reply_title">Standard svar indstilling</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
     <string name="language_string">Language</string>
+    <string name="phonefreedom_is_on">PhoneFreedom is ON!</string>
+    <string name="activate">Aktiver</string>
 
 </resources>
