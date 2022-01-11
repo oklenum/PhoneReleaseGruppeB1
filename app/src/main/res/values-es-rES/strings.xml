@@ -24,6 +24,6 @@
     <string name="messages_header">Mensajes</string>
     <string name="signature_title">Firma</string>
     <string name="reply_title">Acción de respuesta predeterminada</string>
-    <string name="language_string">Language</string>
-    <string name="phonefreedom_is_on">PhoneFreedom is ON!</string>
+    <string name="language_string">Idioma</string>
+    <string name="phonefreedom_is_on">PhoneFreedom está ENCENDIDO!</string>
 </resources>
