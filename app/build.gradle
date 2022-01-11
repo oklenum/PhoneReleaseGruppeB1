@@ -59,4 +59,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
 
+
+    //EasyPermissions https://github.com/VMadalin/easypermissions-ktx
+    implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
+
 }
