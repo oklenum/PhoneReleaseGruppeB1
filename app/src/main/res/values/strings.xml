@@ -33,4 +33,7 @@
     <string name="fab_content_description">fab</string>
     <string name="remove_this_preset">Remove this preset</string>
 
+    <string name="Ok" translatable="false">ok</string>
+    <string name="PermissionReq" translatable="false">permission_required</string>
+
 </resources>

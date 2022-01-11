@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.groupb1.phonefreedom.R
+import java.util.jar.Manifest
 
 class MainActivity1 : AppCompatActivity() {
     private val DND_PERMISSION_CODE = 123
@@ -44,6 +46,8 @@ class MainActivity1 : AppCompatActivity() {
             }
         }
     }
+
+
 
 }
 

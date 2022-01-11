@@ -1,5 +1,6 @@
 package com.groupb1.phonefreedom
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
@@ -21,6 +22,8 @@ import com.groupb1.phonefreedom.addPreset.PRESET_DESCRIPTION
 import com.groupb1.phonefreedom.addPreset.PRESET_NAME
 import com.groupb1.phonefreedom.data.Preset
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
+import com.vmadalin.easypermissions.EasyPermissions
+import com.vmadalin.easypermissions.dialogs.SettingsDialog
 //import com.groupb1.phonefreedom.presetList.PRESET_ID
 //import com.groupb1.phonefreedom.presetList.PresetsListActivity
 import java.time.LocalDate
@@ -34,7 +37,11 @@ import java.util.*
  */
 const val PRESET_ID = "preset id"
 
-class FirstFragment : Fragment() {
+class FirstFragment : Fragment(), EasyPermissions.PermissionCallbacks {
+
+    companion object {
+        const val PERMISSION_REQUEST_CODE = 1
+    }
 
     lateinit var timePicker: TimePickerHelper
     lateinit var datePicker: DatePickerHelper
@@ -72,6 +79,7 @@ class FirstFragment : Fragment() {
         val timeButton = view.findViewById<ImageButton>(R.id.selectTimeBtn)
         val dateButton = view.findViewById<ImageButton>(R.id.selectDateBtn)
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        val buttonPer = view.findViewById<Button>(R.id.buttonPer)
         timeTextView.text = startTime
         dateTextView.text = currentDate
         timeButton.setOnClickListener {
@@ -88,10 +96,14 @@ class FirstFragment : Fragment() {
 
 
         //recyclerView.view.findViewById(R.id.presetList)
-
+        setViewVisibility()
 
         actionButton.setOnClickListener {
             actionButtonOnClick()
+        }
+
+        buttonPer.setOnClickListener {
+            requestPermission()
         }
 
         return view
@@ -163,4 +175,61 @@ class FirstFragment : Fragment() {
         getResult.launch(intent)
     }
 
+    private fun hasPermission() =
+        EasyPermissions.hasPermissions(requireContext(),
+        Manifest.permission.ACCESS_NOTIFICATION_POLICY
+        )
+
+    private fun requestPermission() {
+        EasyPermissions.requestPermissions(
+            this,
+            "This application cannot work without permission",
+            PERMISSION_REQUEST_CODE,
+            Manifest.permission.ACCESS_NOTIFICATION_POLICY
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
+        if (EasyPermissions.somePermissionDenied(this, perms.first())) {
+            SettingsDialog.Builder(requireActivity()).build().show()
+        } else {
+            requestPermission()
+        }
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
+        Toast.makeText(
+            requireContext(),
+            "Permission Granted",
+            Toast.LENGTH_SHORT
+        ).show()
+        setViewVisibility()
+    }
+
+    private fun setViewVisibility() {
+        if (hasPermission()) {
+            val buttonPer = view?.findViewById<Button>(R.id.buttonPer)
+            buttonPer?.visibility = View.VISIBLE
+            val textPer = view?.findViewById<TextView>(R.id.textViewPer)
+            textPer?.visibility = View.GONE
+        } else {
+            val buttonPer = view?.findViewById<Button>(R.id.buttonPer)
+            buttonPer?.visibility = View.GONE
+            val textPer = view?.findViewById<TextView>(R.id.textViewPer)
+            textPer?.visibility = View.VISIBLE
+        }
+    }
+
 }
+
+
+
