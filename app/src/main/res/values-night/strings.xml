@@ -5,8 +5,6 @@
     <string name="textview" translatable="false">TextView</string>
     <string name="todo" translatable="false">TODO</string>
     <string name="todo1" translatable="false">TODO1</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="activate">Aktiver</string>
     <string name="deactivate">Deaktiver</string>
 

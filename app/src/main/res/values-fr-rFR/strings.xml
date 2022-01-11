@@ -26,4 +26,6 @@
     <string name="reply_title">Action de réponse par défaut</string>
     <string name="language_string">Langue</string>
     <string name="phonefreedom_is_on">PhoneFreedom est activé!</string>
+    <string name="check">Vérification des autorisations</string>
+    <string name="hello">"Bienvenue sur Phone Freedom "</string>
 </resources>
