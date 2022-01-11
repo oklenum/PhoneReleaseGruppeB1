@@ -5,7 +5,8 @@
     <string name="todo">TODO</string>
     <string name="todo1">TODO1</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello">Velkommen til Phone Freedom</string>
+    <string name="check">Kontrol af tilladelser</string>
     <string name="deactivate">Deaktiver</string>
 
     <string name="preset1_name">Arbejde</string>

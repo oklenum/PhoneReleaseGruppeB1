@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/firstFragment">
+    app:startDestination="@id/permissionFragment">
 
     <fragment
         android:id="@+id/firstFragment"
@@ -30,4 +30,13 @@
         android:id="@+id/settingsFragment"
         android:name="com.groupb1.phonefreedom.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:name="com.groupb1.phonefreedom.permissionCheck.PermissionFragment"
+        android:label="fragment_permission"
+        tools:layout="@layout/fragment_permission" >
+        <action
+            android:id="@+id/action_permissionFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
 </navigation>
