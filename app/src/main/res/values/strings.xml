@@ -32,6 +32,6 @@
     <string name="done_button_text">Done</string>
     <string name="fab_content_description">fab</string>
     <string name="remove_this_preset">Remove this preset</string>
-    <string name="phonefreedom_is_active">PhoneFreedom is active</string>
+    <string name="phonefreedom_is_active">Phone Freedom is active</string>
 
 </resources>
