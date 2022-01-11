@@ -13,12 +13,12 @@
         android:layout_width="304dp"
         android:layout_height="61dp"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/storytime"
         android:text="PhoneFreedom is ON!"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
