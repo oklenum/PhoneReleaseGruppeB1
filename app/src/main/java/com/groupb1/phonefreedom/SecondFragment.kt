@@ -31,4 +31,6 @@ class SecondFragment : Fragment() {
         return view
     }
 
+    private Progress
+
 }
