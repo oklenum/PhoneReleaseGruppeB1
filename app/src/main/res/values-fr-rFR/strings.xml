@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="activate">Activate</string>
-    <string name="deactivate">Deactivate</string>
-    <string name="preset1_name">Work</string>
-    <string name="preset2_name">School</string>
-    <string name="preset3_name">Travel</string>
-    <string name="preset4_name">Meeting</string>
+    <string name="activate">Activer</string>
+    <string name="deactivate">Désactiver</string>
+    <string name="preset1_name">Travail</string>
+    <string name="preset2_name">L\'école</string>
+    <string name="preset3_name">Voyager</string>
+    <string name="preset4_name">réunion d\'affaires</string>
     <string name="preset5_name">Vacation House</string>
     <string name="preset6_name">Family TIme</string>
     <string name="preset1_description">I´m at work, call later</string>
