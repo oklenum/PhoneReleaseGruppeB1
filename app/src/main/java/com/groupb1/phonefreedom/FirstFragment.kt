@@ -72,6 +72,7 @@ class FirstFragment : Fragment() {
         val timeButton = view.findViewById<ImageButton>(R.id.selectTimeBtn)
         val dateButton = view.findViewById<ImageButton>(R.id.selectDateBtn)
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        val settingsButton = view.findViewById<ImageButton>(R.id.settingsButton)
         timeTextView.text = startTime
         dateTextView.text = currentDate
         timeButton.setOnClickListener {
@@ -84,6 +85,10 @@ class FirstFragment : Fragment() {
         val activateButton = view.findViewById<ImageButton>(R.id.activateButton)
         activateButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment)
+        }
+
+        settingsButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_settingsFragment)
         }
 
 

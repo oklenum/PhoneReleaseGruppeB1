@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -23,4 +26,8 @@
             android:id="@+id/action_secondFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.groupb1.phonefreedom.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
