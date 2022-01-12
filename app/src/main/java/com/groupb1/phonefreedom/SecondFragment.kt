@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
-import com.groupb1.phonefreedom.sms.SendSMS
 
 /**
  * A simple [Fragment] subclass.
@@ -18,8 +17,6 @@ import com.groupb1.phonefreedom.sms.SendSMS
  */
 class SecondFragment : Fragment() {
     // TODO: Rename and change types of parameters
-
-    val sendSMS = SendSMS()
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     override fun onCreateView(
@@ -31,8 +28,7 @@ class SecondFragment : Fragment() {
 
         val activateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
         activateButton.setOnClickListener {
-            //Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_firstFragment)
-            sendSMS.sendSMS("26636882", "noice")
+            Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_firstFragment)
         }
 
         return view
