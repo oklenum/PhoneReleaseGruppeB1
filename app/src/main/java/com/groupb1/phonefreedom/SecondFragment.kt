@@ -3,6 +3,7 @@ package com.groupb1.phonefreedom
 import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import androidx.fragment.app.Fragment
@@ -23,6 +24,7 @@ import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
  */
 class SecondFragment : Fragment() {
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     private lateinit var mNotificationManager: NotificationManager
     private val dndManager = DnDManager()
     private var count: Int = 0
