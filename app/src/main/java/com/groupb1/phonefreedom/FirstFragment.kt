@@ -76,7 +76,7 @@ class FirstFragment : Fragment() {
         val timeButton = view.findViewById<ImageButton>(R.id.selectTimeBtn)
         val dateButton = view.findViewById<ImageButton>(R.id.selectDateBtn)
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
-        timeTextView.text = startTime
+        timeTextView.text = formatted
         dateTextView.text = currentDate
         timeButton.setOnClickListener {
             showTimePickerDialog()
