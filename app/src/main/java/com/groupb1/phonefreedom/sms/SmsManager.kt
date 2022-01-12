@@ -27,6 +27,7 @@ class SmsManager {
             ActivityCompat.checkSelfPermission(SmsActivity(),android.Manifest.permission.READ_SMS)!= PackageManager.PERMISSION_GRANTED ||
             ActivityCompat.checkSelfPermission(SmsActivity(),android.Manifest.permission.READ_PHONE_NUMBERS)!= PackageManager.PERMISSION_GRANTED ||
             ActivityCompat.checkSelfPermission(SmsActivity(),android.Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED)
+
         {
             ActivityCompat.requestPermissions(SmsActivity(), arrayOf(
                 Manifest.permission.SEND_SMS, Manifest.permission.RECEIVE_SMS,
