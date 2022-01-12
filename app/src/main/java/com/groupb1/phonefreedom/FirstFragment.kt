@@ -24,7 +24,9 @@ import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
 //import com.groupb1.phonefreedom.presetList.PRESET_ID
 //import com.groupb1.phonefreedom.presetList.PresetsListActivity
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 /**
@@ -63,7 +65,9 @@ class FirstFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_first, container, false)
-        val startTime = LocalTime.of(17, 0).toString()
+        val startTime = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("HH:mm")
+        val formatted = startTime.format(formatter).toString()
         val currentDate = LocalDate.now().toString()
         datePicker = DatePickerHelper(this.requireContext())
         timePicker = TimePickerHelper(this.requireContext(), true, false)

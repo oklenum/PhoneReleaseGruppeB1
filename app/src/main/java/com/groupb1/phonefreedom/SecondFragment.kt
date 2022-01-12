@@ -29,6 +29,7 @@ class SecondFragment : Fragment() {
         }
 
         return view
+
     }
 
 }
