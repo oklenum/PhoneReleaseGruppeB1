@@ -78,6 +78,7 @@ class FirstFragment : Fragment() {
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         timeTextView.text = formatted
         dateTextView.text = currentDate
+
         timeButton.setOnClickListener {
             showTimePickerDialog(       )
         }
@@ -111,6 +112,7 @@ class FirstFragment : Fragment() {
                 val hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
                 val minuteStr = if (minute < 10) "0${minute}" else "${minute}"
                 timeTextView.text = "${hourOfDay}:${minuteStr}"
+
             }
 
         })
