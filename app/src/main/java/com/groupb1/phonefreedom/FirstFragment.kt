@@ -54,6 +54,7 @@ class FirstFragment : Fragment() {
     lateinit var datePicker: DatePickerHelper
     private lateinit var timeTextView: TextView
     private lateinit var dateTextView: TextView
+    private lateinit var textView6: TextView
     private val presetsListViewModel by viewModels<PresetsListViewModel> {
         PresetsListViewModelFactory(this)
     }
@@ -82,6 +83,7 @@ class FirstFragment : Fragment() {
         timePicker = TimePickerHelper(this.requireContext(), true, false)
         timeTextView = view.findViewById(R.id.timeView)
         dateTextView = view.findViewById(R.id.dateView)
+        textView6 = view.findViewById(R.id.textView6)
         val timeButton = view.findViewById<ImageButton>(R.id.selectTimeBtn)
         val dateButton = view.findViewById<ImageButton>(R.id.selectDateBtn)
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
@@ -93,6 +95,8 @@ class FirstFragment : Fragment() {
 
         timeButton.setOnClickListener {
             showTimePickerDialog()
+            //getTime()
+
         }
         dateButton.setOnClickListener {
             showDatePickerDialog()
@@ -172,11 +176,18 @@ class FirstFragment : Fragment() {
             override fun onTimeSelected(hourOfDay: Int, minute: Int) {
                 val hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
                 val minuteStr = if (minute < 10) "0${minute}" else "${minute}"
-                timeTextView.text = "${hourOfDay}:${minuteStr}"
+                timeTextView.text = "${hourStr}:${minuteStr}"
+                getTime()
 
             }
 
         })
+    }
+
+    fun getTime(): String {
+        val str1: String = timeTextView.text.toString()
+        textView6.text = str1
+        return str1
     }
 
     private fun showDatePickerDialog() {

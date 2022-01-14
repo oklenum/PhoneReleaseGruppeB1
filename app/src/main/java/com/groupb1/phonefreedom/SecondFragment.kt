@@ -30,6 +30,7 @@ class SecondFragment : Fragment() {
 
     // TODO: Rename and change types of parameters
     val firstFragment = FirstFragment()
+    private lateinit var timeLeft: TextView
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     private lateinit var mNotificationManager: NotificationManager
@@ -46,10 +47,12 @@ class SecondFragment : Fragment() {
         val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
         startActivity(intent)
 
+        timeLeft = view.findViewById(R.id.timeLeft)
 
         val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
 
+        timeLeft.text = firstFragment.getTime()
         //dndManager.startDoNotDisturb()
 
         val deactivateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
