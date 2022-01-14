@@ -22,15 +22,6 @@
     <string name="preset5_description">Jeg er i sommerhus, læg venligst en besked.</string>
     <string name="preset6_description">Jeg er sammen med familien, ringer senere.</string>
 
-    <string name="delete_this_preset">Delete this preset</string>
-    <string name="add_preset">Add Preset</string>
-    <string name="preset_string">Presets</string>
-    <string name="preset_finder">Preset finder</string>
-    <string name="preset_description_edit_text">Preset Description</string>
-    <string name="preset_name_edit_text">Preset Name</string>
-    <string name="done_button_text">Done</string>
-    <string name="fab_content_description">fab</string>
-    <string name="remove_this_preset">Remove this preset</string>
     <string name="phonefreedom_is_active">Phone Freedom is active</string>
     <string name="delete_this_preset">Slet denne forindstilling</string>
     <string name="add_preset">Tilføj forindstilling</string>
