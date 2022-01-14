@@ -30,6 +30,9 @@
         <activity android:name=".presetDetail.PresetDetailActivity" />
         <activity android:name=".appManager.DnDOnActivity" />
         <activity android:name=".appManager.DnDOffActivity" />
+        <activity android:name=".sms.SmsActivity"/>
+        <activity android:name=".appManager.AutoReplyManager"/>
+        <activity android:name=".appManager.DnDManager" />
 
         <meta-data
             android:name="preloaded_fonts"

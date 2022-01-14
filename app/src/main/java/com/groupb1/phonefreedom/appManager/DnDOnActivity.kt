@@ -20,6 +20,7 @@ open class DnDOnActivity : AppCompatActivity() {
     private var mContext: Context? = null
     private var mActivity: Activity? = null
     private lateinit var mNotificationManager: NotificationManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
