@@ -79,7 +79,7 @@ class FirstFragment : Fragment() {
         timeTextView.text = formatted
         dateTextView.text = currentDate
         timeButton.setOnClickListener {
-            showTimePickerDialog()
+            showTimePickerDialog(       )
         }
         dateButton.setOnClickListener {
             showDatePickerDialog()
@@ -102,7 +102,7 @@ class FirstFragment : Fragment() {
     }
 
 
-    private fun showTimePickerDialog() {
+    fun showTimePickerDialog() {
         val cal = Calendar.getInstance()
         val h = cal.get(Calendar.HOUR_OF_DAY)
         val m = cal.get(Calendar.MINUTE)
@@ -112,8 +112,12 @@ class FirstFragment : Fragment() {
                 val minuteStr = if (minute < 10) "0${minute}" else "${minute}"
                 timeTextView.text = "${hourOfDay}:${minuteStr}"
             }
+
         })
+        return
     }
+
+
     private fun showDatePickerDialog() {
         val cal = Calendar.getInstance()
         val d = cal.get(Calendar.DAY_OF_MONTH)

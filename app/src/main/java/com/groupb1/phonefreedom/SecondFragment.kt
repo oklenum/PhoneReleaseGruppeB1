@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.TimePicker
 import androidx.navigation.Navigation
 
 /**
@@ -15,6 +17,7 @@ import androidx.navigation.Navigation
  */
 class SecondFragment : Fragment() {
     // TODO: Rename and change types of parameters
+    val firstFragment = FirstFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,4 +35,10 @@ class SecondFragment : Fragment() {
 
     }
 
+    private fun getTimePicked() {
+        findViewById<TextView>(R.id.timeLeft)
+        firstFragment.showTimePickerDialog()
+
+
+        }
 }
