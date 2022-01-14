@@ -31,5 +31,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/sync_header"/>
+    <PreferenceCategory android:title="Check Permissions">
+        <Preference android:fragment="com.groupb1.phonefreedom.permissionCheck.PermissionFragment">
+
+        </Preference>
+
+    </PreferenceCategory>
+
 
 </PreferenceScreen>

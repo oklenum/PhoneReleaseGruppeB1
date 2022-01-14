@@ -192,5 +192,16 @@
         app:srcCompat="@drawable/vectorsetting"
         android:background="#00FFFFFF"/>
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Check Permissions"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
 package com.groupb1.phonefreedom
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -19,13 +21,32 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.groupb1.phonefreedom.addPreset.AddPresetActivity
 import com.groupb1.phonefreedom.addPreset.PRESET_DESCRIPTION
 import com.groupb1.phonefreedom.addPreset.PRESET_NAME
+import com.groupb1.phonefreedom.appManager.DnDOffActivity
 import com.groupb1.phonefreedom.data.Preset
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
+import com.vmadalin.easypermissions.EasyPermissions
 //import com.groupb1.phonefreedom.presetList.PRESET_ID
 //import com.groupb1.phonefreedom.presetList.PresetsListActivity
 import java.time.LocalDate
-import java.time.LocalTime
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
+import android.content.DialogInterface
+
+import android.widget.CheckBox
+import android.widget.CompoundButton
+import android.content.Context.MODE_PRIVATE
+
+import android.content.SharedPreferences
+
+
+
+
+
+
+
+
+
 
 /**
  * A simple [Fragment] subclass.
@@ -40,8 +61,6 @@ class FirstFragment : Fragment() {
     lateinit var datePicker: DatePickerHelper
     private lateinit var timeTextView: TextView
     private lateinit var dateTextView: TextView
-    private lateinit var dayOfTheWeekView: TextView
-    //private lateinit var recyclerView: RecyclerView
     private val presetsListViewModel by viewModels<PresetsListViewModel> {
         PresetsListViewModelFactory(this)
     }
@@ -54,7 +73,7 @@ class FirstFragment : Fragment() {
             presetsListViewModel.insertPreset(presetName, presetDescription)
         }
     }
-    //var notificationManager: NotificationManager = activity.getSystemService(Context.NOTIFICATION_SERVICE)
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -63,7 +82,9 @@ class FirstFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_first, container, false)
-        val startTime = LocalTime.of(17, 0).toString()
+        val startTime = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("HH:mm")
+        val formatted = startTime.format(formatter).toString()
         val currentDate = LocalDate.now().toString()
         datePicker = DatePickerHelper(this.requireContext())
         timePicker = TimePickerHelper(this.requireContext(), true, false)
@@ -73,7 +94,8 @@ class FirstFragment : Fragment() {
         val dateButton = view.findViewById<ImageButton>(R.id.selectDateBtn)
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         val settingsButton = view.findViewById<ImageButton>(R.id.settingsButton)
-        timeTextView.text = startTime
+        val checkButton = view.findViewById<Button>(R.id.button3)
+        timeTextView.text = formatted
         dateTextView.text = currentDate
         timeButton.setOnClickListener {
             showTimePickerDialog()
@@ -91,8 +113,50 @@ class FirstFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_settingsFragment)
         }
 
+        if (!EasyPermissions.hasPermissions(requireContext(),
+                android.Manifest.permission.ACCESS_NOTIFICATION_POLICY)) {
+                    checkButton.visibility = View.VISIBLE
+            checkButton.setOnClickListener {
+                Navigation.findNavController(view).navigate(
+                R.id.action_firstFragment_to_permissionFragment)
+            }
+        }
 
-        //recyclerView.view.findViewById(R.id.presetList)
+        if (EasyPermissions.hasPermissions(requireContext(),
+            android.Manifest.permission.ACCESS_NOTIFICATION_POLICY)) {
+
+        } else {
+
+        }
+
+        val alertBuilder = AlertDialog.Builder(requireActivity())
+        val mView: View = layoutInflater.inflate(R.layout.dialog_permissions, null)
+        val mCheckBox = mView.findViewById<CheckBox>(R.id.checkBox)
+        alertBuilder.setTitle("We Need Permission")
+        alertBuilder.setMessage("First Time using Phone Freedom, we need access to DoNotDisturb, Press Ok to redirect to access settings")
+        alertBuilder.setView(mView)
+        alertBuilder.setPositiveButton("OK"
+        ) { dialogInterface, i ->
+            val intent2 = Intent(activity, DnDOffActivity()::class.java)
+            startActivity(intent2)
+        }
+
+        val mDialog: AlertDialog = alertBuilder.create()
+        mDialog.show()
+        mCheckBox.setOnCheckedChangeListener { compoundButton, b ->
+            if (compoundButton.isChecked) {
+                storeDialogStatus(true)
+            } else {
+                storeDialogStatus(false)
+            }
+        }
+
+        if (getDialogStatus()) {
+            mDialog.show()
+        } else {
+            mDialog.show()
+        }
+
 
 
         actionButton.setOnClickListener {
@@ -101,7 +165,6 @@ class FirstFragment : Fragment() {
 
         return view
     }
-
 
     private fun showTimePickerDialog() {
         val cal = Calendar.getInstance()
@@ -115,6 +178,7 @@ class FirstFragment : Fragment() {
             }
         })
     }
+
     private fun showDatePickerDialog() {
         val cal = Calendar.getInstance()
         val d = cal.get(Calendar.DAY_OF_MONTH)
@@ -135,19 +199,11 @@ class FirstFragment : Fragment() {
         })
     }
 
-    private fun turnOnDND() {
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val recyclerView: RecyclerView = view.findViewById(R.id.presetList)
         val presetsAdapter = PresetsAdapter { preset -> adapterOnClick(preset)  }
         recyclerView.adapter = presetsAdapter
-        //recyclerView = view.findViewById(R.id.presetList)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        //recyclerView.adapter = presets
-        //val intent = Intent(activity, PresetsListActivity::class.java)
-        //startActivity(intent)
         presetsListViewModel.presetsLiveData.observe(viewLifecycleOwner, {
             it?.let {
                 presetsAdapter.submitList(it as MutableList<Preset>)
@@ -166,6 +222,23 @@ class FirstFragment : Fragment() {
     private fun actionButtonOnClick() {
         val intent = Intent(activity, AddPresetActivity::class.java)
         getResult.launch(intent)
+    }
+
+    private fun storeDialogStatus(isChecked: Boolean) {
+        val mSharedPreferences: SharedPreferences = requireActivity().getSharedPreferences("CheckItem", MODE_PRIVATE)
+        val mEditor = mSharedPreferences.edit()
+        mEditor.putBoolean("item", isChecked)
+        mEditor.apply()
+    }
+
+    private fun getDialogStatus(): Boolean {
+        val mSharedPreferences: SharedPreferences = requireActivity().getSharedPreferences("CheckItem", MODE_PRIVATE)
+        return mSharedPreferences.getBoolean("item", false)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
     }
 
 }

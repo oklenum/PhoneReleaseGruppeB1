@@ -4,7 +4,10 @@ import android.Manifest
 import android.app.Activity
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +15,7 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -32,6 +36,8 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     private lateinit var button: Button
     private lateinit var textView: TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var success: TextView
+    private lateinit var goTo: Button
     private lateinit var mNotificationManager: NotificationManager
     private var mContext: Context? = null
     private var mActivity: Activity? = null
@@ -39,6 +45,7 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,9 +54,12 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         _binding = FragmentPermissionBinding.inflate(inflater, container, false)
         button = binding.button
         textView = binding.textView
+        success = binding.success
+        goTo = binding.buttonGo
         progressBar = binding.progressBar2
         mActivity = this.requireActivity()
         mContext = activity
+        button.text = "Get Permission"
 
 
 
@@ -60,16 +70,26 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             setViewVisibility()
             Thread.sleep(1000)
             requestLocationPermission()
-            if (hasLocationPermission()) {
-                Navigation.findNavController(it).navigate(
-                    R.id.action_permissionFragment_to_firstFragment
-                )
-            }
+            val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+            startActivity(intent)
+            button.visibility = View.GONE
+        }
+
+        if (mNotificationManager.isNotificationPolicyAccessGranted) {
+            success.visibility = View.VISIBLE
+            goTo.visibility = View.VISIBLE
+        }
+
+        goTo.setOnClickListener {
+            Navigation.findNavController(it).navigate(
+                R.id.action_permissionFragment_to_firstFragment
+            )
         }
 
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun hasLocationPermission() =
         EasyPermissions.hasPermissions(
             requireContext(),
@@ -77,6 +97,7 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
         )
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun requestLocationPermission() {
         EasyPermissions.requestPermissions(
             this,
@@ -94,6 +115,7 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
             SettingsDialog.Builder(requireActivity()).build().show()
@@ -102,6 +124,7 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
         Toast.makeText(
             requireContext(),
@@ -111,6 +134,7 @@ class PermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         setViewVisibility()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun setViewVisibility() {
         if (hasLocationPermission()) {
             textView.visibility = View.VISIBLE
