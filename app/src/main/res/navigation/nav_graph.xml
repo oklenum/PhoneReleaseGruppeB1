@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_permissionFragment"
+            app:destination="@id/permissionFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -21,6 +27,19 @@
         tools:layout="@layout/fragment_second" >
         <action
             android:id="@+id/action_secondFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.groupb1.phonefreedom.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:name="com.groupb1.phonefreedom.permissionCheck.PermissionFragment"
+        android:label="fragment_permission"
+        tools:layout="@layout/fragment_permission" >
+        <action
+            android:id="@+id/action_permissionFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
     </fragment>
 </navigation>

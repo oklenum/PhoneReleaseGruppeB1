@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activate">Activate</string>
+    <string name="deactivate">Deactivate</string>
+    <string name="preset1_name">Work</string>
+    <string name="preset2_name">School</string>
+    <string name="preset3_name">Travel</string>
+    <string name="preset4_name">Meeting</string>
+    <string name="preset5_name">Vacation House</string>
+    <string name="preset6_name">Family TIme</string>
+    <string name="preset1_description">I´m at work, call later</string>
+    <string name="preset2_description">I´m at school, call later</string>
+    <string name="preset3_description">I´m on vacation, leave a message</string>
+    <string name="preset4_description">I´m in a meeting, call later</string>
+    <string name="preset5_description">I´m out of town, leave a message</string>
+    <string name="preset6_description">Family time, call later</string>
+    <string name="delete_this_preset">Delete this preset</string>
+    <string name="add_preset">Add preset</string>
+    <string name="preset_string">Presets</string>
+    <string name="preset_description_edit_text">Preset description</string>
+    <string name="preset_name_edit_text">Preset name</string>
+    <string name="done_button_text">Done</string>
+    <string name="remove_this_preset">Remove this preset</string>
+    <string name="messages_header">Messages</string>
+    <string name="signature_title">Signature</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="language_string">Language</string>
+    <string name="phonefreedom_is_on">PhoneFreedom is ON!</string>
+    <string name="hello">Welcome to Phone Freedom</string>
+    <string name="check">Checking permissions</string>
+</resources>

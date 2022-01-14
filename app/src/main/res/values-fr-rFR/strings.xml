@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activate">Activer</string>
+    <string name="deactivate">Désactiver</string>
+    <string name="preset1_name">Travail</string>
+    <string name="preset2_name">L´école</string>
+    <string name="preset3_name">Voyager</string>
+    <string name="preset4_name">réunion d´affaires</string>
+    <string name="preset5_name">Maison de vacances</string>
+    <string name="preset6_name">Du temps en famille</string>
+    <string name="preset1_description">Je suis au travail, appelle plus tard</string>
+    <string name="preset2_description">Je suis à l´école, appelle plus tard</string>
+    <string name="preset3_description">Je suis en vacances, laissez un message</string>
+    <string name="preset4_description">Je suis en réunion, appelle plus tard</string>
+    <string name="preset5_description">I´m out of town, leave a message</string>
+    <string name="preset6_description">Temps en famille, appelez plus tard</string>
+    <string name="delete_this_preset">Supprimer ce préréglage</string>
+    <string name="add_preset">Ajouter un préréglage</string>
+    <string name="preset_string">Préconfigurations</string>
+    <string name="preset_description_edit_text">Description du préréglage</string>
+    <string name="preset_name_edit_text">Nom prédéfini</string>
+    <string name="done_button_text">Fait</string>
+    <string name="remove_this_preset">Supprimer ce préréglage</string>
+    <string name="messages_header">Messages</string>
+    <string name="signature_title">Signature</string>
+    <string name="reply_title">Action de réponse par défaut</string>
+    <string name="language_string">Langue</string>
+    <string name="phonefreedom_is_on">PhoneFreedom est activé!</string>
+    <string name="check">Vérification des autorisations</string>
+    <string name="hello">"Bienvenue sur Phone Freedom "</string>
+</resources>

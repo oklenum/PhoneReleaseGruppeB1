@@ -1,13 +1,12 @@
 <resources>
-    <string name="app_name">PhoneFreedomFirst</string>
-    <string name="phone_freed">Phone Freedom</string>
-    <string name="textview">TextView</string>
-    <string name="todo">TODO</string>
-    <string name="todo1">TODO1</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="activate">Activate</string>
-    <string name="deactivate">Deactivate</string>
+    <string name="app_name" translatable="false">PhoneFreedomFirst</string>
+    <string name="phone_freed" translatable="false">Phone Freedom</string>
+    <string name="textview" translatable="false">TextView</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="todo1" translatable="false">TODO1</string>
+    <string name="hello">Velkommen til Phone Freedom</string>
+    <string name="check">Kontrol af tilladelser</string>
+    <string name="deactivate">Deaktiver</string>
 
     <string name="preset1_name">Arbejde</string>
     <string name="preset2_name">Skole</string>
@@ -33,5 +32,31 @@
     <string name="fab_content_description">fab</string>
     <string name="remove_this_preset">Remove this preset</string>
     <string name="phonefreedom_is_active">Phone Freedom is active</string>
+    <string name="delete_this_preset">Slet denne forindstilling</string>
+    <string name="add_preset">Tilføj forindstilling</string>
+    <string name="preset_string">Forindstillinger</string>
+    <string name="preset_finder" translatable="false">Preset finder</string>
+    <string name="preset_description_edit_text">Beskrivelse af forindstilling</string>
+    <string name="preset_name_edit_text">Navn på forindstilling</string>
+    <string name="done_button_text">Færdig</string>
+    <string name="fab_content_description" translatable="false">fab</string>
+    <string name="remove_this_preset">Slet denne forindstilling</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Beskeder</string>
+    <string name="sync_header" translatable="false">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Signatur</string>
+    <string name="reply_title">Standard svar indstilling</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+    <string name="language_string">Language</string>
+    <string name="phonefreedom_is_on">PhoneFreedom is ON!</string>
+    <string name="activate">Aktiver</string>
 
 </resources>
