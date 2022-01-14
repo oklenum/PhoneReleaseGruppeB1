@@ -154,7 +154,7 @@ class FirstFragment : Fragment() {
         }
 
         if (getDialogStatus()) {
-            mDialog.show()
+            mDialog.hide()
         } else {
             mDialog.show()
         }

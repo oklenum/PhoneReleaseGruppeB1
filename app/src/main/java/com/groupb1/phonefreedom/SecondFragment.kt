@@ -9,13 +9,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
 import com.groupb1.phonefreedom.appManager.DnDOnActivity
 import com.groupb1.phonefreedom.appManager.AutoReplyManager
 import com.groupb1.phonefreedom.sms.SmsActivity
-import com.groupb1.phonefreedom.appManager.DnDManager
+import com.groupb1.phonefreedom.appManager.DnDOffActivity
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
 
 /**
@@ -38,10 +39,7 @@ class SecondFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
-        val intent = Intent(activity, DnDOnActivity()::class.java)
-        val button = view.findViewById<Button>(R.id.button2)
-
-        val intent = Intent(activity, DnDManager()::class.java) // Activates DND
+        val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
         startActivity(intent)
 
 
