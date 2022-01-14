@@ -35,10 +35,9 @@ class SecondFragment : Fragment() {
 
     }
 
-    private fun getTimePicked() {
-        findViewById<TextView>(R.id.timeLeft)
-        firstFragment.showTimePickerDialog()
-
-
-        }
+    // ikke færdiggjort
+    //private fun getTimePicked() {
+        //findViewById<TextView>(R.id.timeLeft)
+       // firstFragment.showTimePickerDialog()
 }
+
