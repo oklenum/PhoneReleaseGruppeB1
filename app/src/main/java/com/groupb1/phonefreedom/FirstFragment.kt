@@ -159,6 +159,9 @@ class FirstFragment : Fragment() {
             mDialog.show()
         }
 
+        val intent3 = Intent(activity, DnDOffActivity()::class.java)
+        startActivity(intent3)
+
 
 
         actionButton.setOnClickListener {
