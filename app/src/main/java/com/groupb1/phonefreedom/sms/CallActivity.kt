@@ -18,7 +18,6 @@ class CallActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_call)
 
         smsManager.checkPermissionSMS()
         autoReplyCall()
