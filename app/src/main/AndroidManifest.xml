@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".addPreset.AddPresetActivity" />
         <activity android:name=".presetDetail.PresetDetailActivity" />
+        <activity android:name=".sms.SmsActivity"/>
+        <activity android:name=".appManager.AutoReplyManager"/>
         <activity android:name=".appManager.DnDManager" />
 
         <meta-data

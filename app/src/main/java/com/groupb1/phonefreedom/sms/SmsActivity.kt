@@ -1,5 +1,6 @@
 package com.groupb1.phonefreedom.sms
 
+import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -10,17 +11,22 @@ import android.provider.Telephony
 import androidx.appcompat.app.AppCompatActivity
 import com.groupb1.phonefreedom.R
 
-class SmsActivity: AppCompatActivity() {
+class SmsActivity: AppCompatActivity() { // Delete class.
 
     val smsManager = SmsManager()
-
+    private var mContext: Context? = null
+    private var mActivity: Activity? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        // setContentView(R.layout.fragment_second)
 
-        smsManager.checkPermissionSMS()
+        mContext = applicationContext
+        mActivity = this@SmsActivity
+
+        //smsManager.checkPermissionSMS()
         autoReply()
+        finish()
     }
 
     private fun autoReply(){

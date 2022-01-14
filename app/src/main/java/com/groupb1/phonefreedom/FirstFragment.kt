@@ -21,6 +21,7 @@ import com.groupb1.phonefreedom.addPreset.PRESET_DESCRIPTION
 import com.groupb1.phonefreedom.addPreset.PRESET_NAME
 import com.groupb1.phonefreedom.data.Preset
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
+import com.groupb1.phonefreedom.sms.SmsActivity
 //import com.groupb1.phonefreedom.presetList.PRESET_ID
 //import com.groupb1.phonefreedom.presetList.PresetsListActivity
 import java.time.LocalDate
@@ -85,6 +86,7 @@ class FirstFragment : Fragment() {
         val activateButton = view.findViewById<ImageButton>(R.id.activateButton)
         activateButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment)
+
         }
 
         settingsButton.setOnClickListener {

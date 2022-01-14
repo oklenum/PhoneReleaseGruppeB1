@@ -1,7 +1,7 @@
 package com.groupb1.phonefreedom
 
-import android.app.NotificationManager
 import android.content.Intent
+import android.app.NotificationManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -13,6 +13,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
+import com.groupb1.phonefreedom.appManager.AutoReplyManager
+import com.groupb1.phonefreedom.sms.SmsActivity
 import com.groupb1.phonefreedom.appManager.DnDManager
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
 
@@ -23,6 +25,7 @@ import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
  */
 class SecondFragment : Fragment() {
 
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     private lateinit var mNotificationManager: NotificationManager
     private val dndManager = DnDManager()
@@ -32,12 +35,18 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
         val button = view.findViewById<Button>(R.id.button2)
-        val intent = Intent(activity, DnDManager()::class.java)
+
+        val intent = Intent(activity, DnDManager()::class.java) // Activates DND
         startActivity(intent)
+
+        val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
+        startActivity(intent2)
+
         //dndManager.startDoNotDisturb()
 
         val deactivateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
