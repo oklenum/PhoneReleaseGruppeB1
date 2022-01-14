@@ -32,8 +32,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 import android.content.DialogInterface
 
@@ -42,15 +40,6 @@ import android.widget.CompoundButton
 import android.content.Context.MODE_PRIVATE
 
 import android.content.SharedPreferences
-
-
-
-
-
-
-
-
-
 
 /**
  * A simple [Fragment] subclass.
@@ -78,7 +67,6 @@ class FirstFragment : Fragment() {
         }
     }
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -104,7 +92,7 @@ class FirstFragment : Fragment() {
         dateTextView.text = currentDate
 
         timeButton.setOnClickListener {
-            showTimePickerDialog(       )
+            showTimePickerDialog()
         }
         dateButton.setOnClickListener {
             showDatePickerDialog()
@@ -176,8 +164,6 @@ class FirstFragment : Fragment() {
         return view
     }
 
-
-    fun showTimePickerDialog() {
     private fun showTimePickerDialog() {
         val cal = Calendar.getInstance()
         val h = cal.get(Calendar.HOUR_OF_DAY)
@@ -191,10 +177,7 @@ class FirstFragment : Fragment() {
             }
 
         })
-        return
     }
-
-
 
     private fun showDatePickerDialog() {
         val cal = Calendar.getInstance()
