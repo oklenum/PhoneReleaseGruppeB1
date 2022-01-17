@@ -25,12 +25,19 @@ import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
 class SecondFragment : Fragment() {
 
     private lateinit var timeLeft: TextView
+    private lateinit var date: TextView
     private lateinit var hourId: String
     private lateinit var minuteId: String
+    private lateinit var dayId: String
+    private lateinit var monthId: String
+    private lateinit var yearId: String
 
     companion object {
         const val HOUR = "hour"
         const val MINUTE = "minute"
+        const val DAY = "day"
+        const val MONTH = "month"
+        const val YEAR = "year"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +45,9 @@ class SecondFragment : Fragment() {
         arguments?.let {
             hourId = it.getString(HOUR).toString()
             minuteId = it.getString(MINUTE).toString()
+            dayId = it.getString(DAY).toString()
+            monthId = it.getString(MONTH).toString()
+            yearId = it.getString(YEAR).toString()
         }
     }
 
@@ -54,11 +64,13 @@ class SecondFragment : Fragment() {
         startActivity(intent)
 
         timeLeft = view.findViewById(R.id.timeLeft)
+        date = view.findViewById(R.id.date)
 
         val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
 
         timeLeft.text = "${hourId}:${minuteId}"
+        date.text = "${dayId}-${monthId}-${yearId}"
 
         val deactivateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
         deactivateButton.setOnClickListener {

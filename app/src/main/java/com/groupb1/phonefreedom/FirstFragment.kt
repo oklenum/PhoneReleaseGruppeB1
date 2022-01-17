@@ -60,6 +60,9 @@ class FirstFragment : Fragment() {
     private lateinit var textView6: TextView
     private var hourStr: String = ""
     private var minuteStr: String = ""
+    private var dayStr: String = ""
+    private var monthStr: String = ""
+    private var yearStr: String = ""
     private val presetsListViewModel by viewModels<PresetsListViewModel> {
         PresetsListViewModelFactory(this)
     }
@@ -122,7 +125,8 @@ class FirstFragment : Fragment() {
         activateButton.setOnClickListener {
             val action =
                 FirstFragmentDirections.actionFirstFragmentToSecondFragment(
-                    hour = hourStr, minute = minuteStr)
+                    hour = hourStr, minute = minuteStr, day = dayStr,
+                    month = monthStr, year = yearStr)
             Navigation.findNavController(view).navigate(action)
 
 
@@ -211,13 +215,11 @@ class FirstFragment : Fragment() {
 
         datePicker.showDialog(d, m, y, object : DatePickerHelper.Callback {
             override fun onDateSelected(dayofMonth: Int, month: Int, year: Int) {
-                val dayStr = if (dayofMonth < 10) "0${dayofMonth}" else "${dayofMonth}"
+                dayStr = if (dayofMonth < 10) "0${dayofMonth}" else "${dayofMonth}"
                 val mon = month + 1
-                val monthStr = if (mon < 10) "0${mon}" else "${mon}"
-                //val w = cal.get(Calendar.DAY_OF_WEEK_IN_MONTH)
-                //val dayOfWeek = DateFormatSymbols().shortWeekdays[2]
-                //dayOfTheWeekView.text = dayOfWeek
-                dateTextView.text = "${dayStr}-${monthStr}-${year}"
+                monthStr = if (mon < 10) "0${mon}" else "${mon}"
+                yearStr = "$year"
+                dateTextView.text = "${dayStr}-${monthStr}-${yearStr}"
 
             }
         })
