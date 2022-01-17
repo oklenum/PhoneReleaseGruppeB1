@@ -25,7 +25,7 @@
     <string name="signature_title">Firma</string>
     <string name="reply_title">Acción de respuesta predeterminada</string>
     <string name="language_string">Idioma</string>
-    <string name="phonefreedom_is_on">PhoneFreedom está ENCENDIDO!</string>
-    <string name="hello">" Bienvenido a Phone Freedom"</string>
+    <string name="phonefreedom_is_on">Phone Release está ENCENDIDO!</string>
+    <string name="hello">" Bienvenido a Phone Release"</string>
     <string name="check">" Comprobación de permisos"</string>
 </resources>

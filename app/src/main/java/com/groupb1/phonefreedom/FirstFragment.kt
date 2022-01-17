@@ -1,5 +1,6 @@
 package com.groupb1.phonefreedom
 
+import android.accounts.AccountManager.get
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.NotificationManager
@@ -40,6 +41,8 @@ import android.widget.CompoundButton
 import android.content.Context.MODE_PRIVATE
 
 import android.content.SharedPreferences
+import java.lang.reflect.Array.get
+import java.nio.file.Paths.get
 
 /**
  * A simple [Fragment] subclass.
@@ -180,6 +183,11 @@ class FirstFragment : Fragment() {
                 getTime()
 
             }
+            fun GetHour():Int {
+                val calendar = Calendar.getInstance()
+                return calendar.get(Calendar.HOUR_OF_DAY)
+            }
+
 
         })
     }
