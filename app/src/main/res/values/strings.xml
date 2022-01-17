@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name" translatable="false">PhoneFreedomFirst</string>
-    <string name="phone_freed" translatable="false">Phone Freedom</string>
+    <string name="app_name" translatable="false">PhoneReleaseFirst</string>
+    <string name="phone_freed" translatable="false">Phone Release</string>
     <string name="textview" translatable="false">TextView</string>
     <string name="todo" translatable="false">TODO</string>
     <string name="todo1" translatable="false">TODO1</string>
-    <string name="hello">Velkommen til Phone Freedom</string>
+    <string name="hello">Velkommen til Phone Release,</string>
     <string name="check">Kontrol af tilladelser</string>
     <string name="deactivate">Deaktiver</string>
 
@@ -23,7 +23,7 @@
     <string name="preset6_description">Jeg er sammen med familien, ringer senere.</string>
 
 
-    <string name="phonefreedom_is_active" translatable="false">Phone Freedom is active</string>
+    <string name="phonefreedom_is_active" translatable="false">Phone Release is active</string>
     <string name="delete_this_preset">Slet denne forindstilling</string>
     <string name="add_preset">Tilføj forindstilling</string>
     <string name="preset_string">Forindstillinger</string>
@@ -48,7 +48,7 @@
     </string>
     <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
     <string name="language_string">Language</string>
-    <string name="phonefreedom_is_on">PhoneFreedom is ON!</string>
+    <string name="phonefreedom_is_on">Phone Release is ON!</string>
     <string name="activate">Aktiver</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

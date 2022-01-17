@@ -25,7 +25,7 @@
     <string name="signature_title">Signature</string>
     <string name="reply_title">Action de réponse par défaut</string>
     <string name="language_string">Langue</string>
-    <string name="phonefreedom_is_on">PhoneFreedom est activé!</string>
+    <string name="phonefreedom_is_on">Phone Release est activé!</string>
     <string name="check">Vérification des autorisations</string>
-    <string name="hello">"Bienvenue sur Phone Freedom "</string>
+    <string name="hello">Bienvenue sur Phone Release</string>
 </resources>
