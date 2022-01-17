@@ -24,7 +24,7 @@
 
 
     <string name="phonefreedom_is_active">Phone Freedom is active</string>
-    <string name="delete_this_preset">Slette denne forinstilling</string>
+    <string name="delete_this_preset">Slet denne forinstilling</string>
     <string name="add_preset">Tilføj forindstilling</string>
     <string name="preset_string">forindstillinger</string>
     <string name="preset_finder" translatable="false">Preset finder</string>

@@ -12,7 +12,7 @@
     <string name="preset2_description">Je suis à l´école, appelle plus tard</string>
     <string name="preset3_description">Je suis en vacances, laissez un message</string>
     <string name="preset4_description">Je suis en réunion, appelle plus tard</string>
-    <string name="preset5_description">I´m out of town, leave a message</string>
+    <string name="preset5_description">" Je suis hors de la ville, laissez un message"</string>
     <string name="preset6_description">Temps en famille, appelez plus tard</string>
     <string name="delete_this_preset">Supprimer ce préréglage</string>
     <string name="add_preset">Ajouter un préréglage</string>
