@@ -25,6 +25,7 @@ class TimePickerHelper(
 
         dialog = TimePickerDialog(context, style, listener,
             cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), is24HourView)
+
     }
 
     fun showDialog(hourOfDay: Int, minute: Int, callback: Callback?) {
@@ -36,4 +37,10 @@ class TimePickerHelper(
     interface Callback {
         fun onTimeSelected(hourOfDay: Int, minute: Int)
     }
+
+    fun getTime(hourOfDay: Int, minute: Int, callback: Callback?) {
+        this.callback = callback
+        dialog.updateTime(hourOfDay, minute)
+    }
+
 }

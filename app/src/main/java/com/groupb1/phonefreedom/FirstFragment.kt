@@ -34,12 +34,15 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 import android.content.DialogInterface
+import android.widget.TimePicker
+import android.app.TimePickerDialog
 
 import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.content.Context.MODE_PRIVATE
 
 import android.content.SharedPreferences
+import java.text.SimpleDateFormat
 
 /**
  * A simple [Fragment] subclass.
@@ -55,6 +58,8 @@ class FirstFragment : Fragment() {
     private lateinit var timeTextView: TextView
     private lateinit var dateTextView: TextView
     private lateinit var textView6: TextView
+    private var hourStr: String = ""
+    private var minuteStr: String = ""
     private val presetsListViewModel by viewModels<PresetsListViewModel> {
         PresetsListViewModelFactory(this)
     }
@@ -95,16 +100,31 @@ class FirstFragment : Fragment() {
 
         timeButton.setOnClickListener {
             showTimePickerDialog()
-            //getTime()
+            /*
+            val cal = Calendar.getInstance()
+            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minutes ->
+                cal.set(Calendar.HOUR_OF_DAY, hour)
+                cal.set(Calendar.MINUTE, minutes)
+                timeTextView.text = SimpleDateFormat("HH:mm").format(cal.time)
+            }
+            TimePickerDialog(activity, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+
+             */
 
         }
+
+
         dateButton.setOnClickListener {
             showDatePickerDialog()
         }
 
         val activateButton = view.findViewById<ImageButton>(R.id.activateButton)
         activateButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment)
+            val action =
+                FirstFragmentDirections.actionFirstFragmentToSecondFragment(
+                    hour = hourStr, minute = minuteStr)
+            Navigation.findNavController(view).navigate(action)
+
 
         }
 
@@ -156,14 +176,11 @@ class FirstFragment : Fragment() {
             mDialog.show()
         }
 
-        val intent3 = Intent(activity, DnDOffActivity()::class.java)
-        startActivity(intent3)
-
-
 
         actionButton.setOnClickListener {
             actionButtonOnClick()
         }
+
 
         return view
     }
@@ -174,21 +191,17 @@ class FirstFragment : Fragment() {
         val m = cal.get(Calendar.MINUTE)
         timePicker.showDialog(h, m, object : TimePickerHelper.Callback {
             override fun onTimeSelected(hourOfDay: Int, minute: Int) {
-                val hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
-                val minuteStr = if (minute < 10) "0${minute}" else "${minute}"
+                hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
+                minuteStr = if (minute < 10) "0${minute}" else "${minute}"
                 timeTextView.text = "${hourStr}:${minuteStr}"
-                getTime()
+                textView6.text = hourStr
 
             }
-
         })
+
     }
 
-    fun getTime(): String {
-        val str1: String = timeTextView.text.toString()
-        textView6.text = str1
-        return str1
-    }
+
 
     private fun showDatePickerDialog() {
         val cal = Calendar.getInstance()
@@ -251,5 +264,7 @@ class FirstFragment : Fragment() {
         super.onDestroyView()
 
     }
+
+
 
 }

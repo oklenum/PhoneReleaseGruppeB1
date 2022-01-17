@@ -50,5 +50,7 @@
     <string name="language_string">Language</string>
     <string name="phonefreedom_is_on">PhoneFreedom is ON!</string>
     <string name="activate">Aktiver</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
