@@ -3,11 +3,11 @@ package com.groupb1.phonefreedom
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.groupb1.phonefreedom.R
 import com.groupb1.phonefreedom.data.Preset
 
@@ -17,11 +17,13 @@ class PresetsAdapter(private val onClick: (Preset) -> Unit) :
 
     class PresetViewHolder(itemView: View, val onClick: (Preset) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
-        private val presetTextView: TextView = itemView.findViewById(R.id.preset_button)
+        private val linLayout: LinearLayout = itemView.findViewById(R.id.lin_layout)
+        private val presetButton: Button = itemView.findViewById(R.id.preset_button)
+        private val presetSwitch: SwitchMaterial = itemView.findViewById(R.id.preset_switch)
         private var currentPreset: Preset? = null
 
         init {
-            itemView.setOnClickListener {
+            presetButton.setOnClickListener {
                 currentPreset?.let {
                     onClick(it)
                 }
@@ -29,10 +31,10 @@ class PresetsAdapter(private val onClick: (Preset) -> Unit) :
         }
 
         /* Bind preset name */
-        fun bind(flower: Preset) {
-            currentPreset = flower
+        fun bind(preset: Preset) {
+            currentPreset = preset
 
-            presetTextView.text = flower.name
+            presetButton.text = preset.name
         }
     }
 
