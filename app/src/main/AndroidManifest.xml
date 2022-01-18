@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
@@ -29,6 +30,8 @@
         </activity>
         <activity android:name=".addPreset.AddPresetActivity" />
         <activity android:name=".presetDetail.PresetDetailActivity" />
+        <activity android:name=".appManager.DnDOnActivity" />
+        <activity android:name=".appManager.DnDOffActivity" />
         <activity android:name=".sms.SmsActivity"/>
         <activity android:name=".appManager.AutoReplyManager"/>
         <activity android:name=".appManager.DnDManager" />
@@ -38,4 +41,5 @@
             android:resource="@array/preloaded_fonts" />
 
     </application>
+
 </manifest>
