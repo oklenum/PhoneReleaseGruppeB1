@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,6 +19,12 @@
         android:roundIcon="@mipmap/pr_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PhoneFreedomGruppeB1">
+        <service android:enabled="true"
+            android:name=".services.ServiceDisturb">
+        </service>
+        <service android:enabled="true"
+            android:name=".services.ServiceAutoReply">
+        </service>
         <activity
             android:name="com.groupb1.phonefreedom.MainActivity"
             android:exported="true">
