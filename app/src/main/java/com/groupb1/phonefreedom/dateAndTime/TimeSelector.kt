@@ -37,10 +37,4 @@ class TimePickerHelper(
     interface Callback {
         fun onTimeSelected(hourOfDay: Int, minute: Int)
     }
-
-    fun getTime(hourOfDay: Int, minute: Int, callback: Callback?) {
-        this.callback = callback
-        dialog.updateTime(hourOfDay, minute)
-    }
-
 }

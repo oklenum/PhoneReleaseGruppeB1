@@ -36,7 +36,7 @@ open class DnDOnActivity : AppCompatActivity() {
         // Get the notification manager instance
         mNotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        // Total silence the device, turn off all notifications
+        // Turns on DnD
 
         changeInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
         finish()
