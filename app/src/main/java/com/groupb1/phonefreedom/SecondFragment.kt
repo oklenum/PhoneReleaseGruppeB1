@@ -102,7 +102,6 @@ class SecondFragment : Fragment() {
     }
 
 
-    }
 }
 
 
