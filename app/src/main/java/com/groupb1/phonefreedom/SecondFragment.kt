@@ -15,12 +15,18 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.TimePicker
 import androidx.annotation.RequiresApi
+import androidx.core.content.contentValuesOf
 import androidx.navigation.Navigation
 import com.groupb1.phonefreedom.appManager.DnDOnActivity
 import com.groupb1.phonefreedom.appManager.AutoReplyManager
 import com.groupb1.phonefreedom.sms.SmsActivity
 import com.groupb1.phonefreedom.appManager.DnDOffActivity
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
+import com.groupb1.phonefreedom.services.ServiceAutoReply
+import com.groupb1.phonefreedom.services.ServiceDisturb
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class SecondFragment : Fragment() {
 
@@ -57,17 +63,27 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
-        val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
-        startActivity(intent)
+        val currentTime = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("HH:mm")
+        val formatted = currentTime.format(formatter).toString()
+        val currentDate = LocalDate.now().toString()
+
+        // val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
+       // startActivity(intent)
+
 
         timeLeft = view.findViewById(R.id.timeLeft)
         date = view.findViewById(R.id.date)
 
-        val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
-        startActivity(intent2)
+       // val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
+        //startActivity(intent2)
+
+        requireActivity().startService(Intent(activity, ServiceDisturb()::class.java))
+        requireActivity().startService(Intent(activity, ServiceAutoReply()::class.java))
 
         timeLeft.text = "${hourId}:${minuteId}"
         date.text = "${dayId}-${monthId}-${yearId}"
@@ -78,8 +94,14 @@ class SecondFragment : Fragment() {
         }
         return view
     }
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
+    }
+
+
     }
 }
 
