@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Willkommen bei Phone Release</string>
+    <string name="check">Überprüfen von Berechtigungen</string>
+    <string name="deactivate">Ausschalten</string>
+    <string name="preset1_name">Arbeit</string>
+    <string name="preset2_name">Schule</string>
+    <string name="preset3_name">Reise</string>
+    <string name="preset4_name">Besprechung</string>
+    <string name="preset5_name">Ferienheim</string>
+    <string name="preset6_name">Familie Zeit</string>
+    <string name="preset1_description">"Ich bin bei der Arbeit, ich rufe dich später an. "</string>
+    <string name="preset2_description">Ich bin in der Schule,  ich rufe dich später an .</string>
+    <string name="preset3_description">Ich bin im Urlaub, bitte hinterlassen Sie eine Nachricht</string>
+    <string name="preset4_description">"Ich befinde mich in einer Besprechung, ich rufe dich später an. "</string>
+    <string name="preset5_description">"Ich bin in der Ferienheim, ich rufe dich später an. "</string>
+    <string name="preset6_description">" Ich bin bei der Familie, ich rufe dich später an. "</string>
+    <string name="delete_this_preset">Diese Voreinstellung löschen</string>
+    <string name="add_preset">Voreinstellung hinzufügen</string>
+    <string name="preset_string">" Voreinstellungen"</string>
+    <string name="preset_description_edit_text">Beschreibung der Voreinstellung</string>
+    <string name="preset_name_edit_text">Name der Voreinstellung</string>
+    <string name="done_button_text">Fertig</string>
+    <string name="remove_this_preset">Diese Voreinstellung löschen</string>
+    <string name="messages_header">Meldungen</string>
+    <string name="signature_title">Unterschrift</string>
+    <string name="reply_title">Einstellung von Standardantwort</string>
+    <string name="language_string">Sprache</string>
+    <string name="phonefreedom_is_on">Phone Release ist aktiv!</string>
+    <string name="activate">Aktivieren</string>
+</resources>
