@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
         android:allowBackup="true"
@@ -32,7 +33,7 @@
         <activity android:name=".appManager.DnDOffActivity" />
         <activity android:name=".sms.SmsActivity"/>
         <activity android:name=".appManager.AutoReplyManager"/>
-        <activity android:name=".appManager.DnDManager" />
+
 
         <meta-data
             android:name="preloaded_fonts"
