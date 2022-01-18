@@ -103,16 +103,6 @@ class FirstFragment : Fragment() {
 
         timeButton.setOnClickListener {
             showTimePickerDialog()
-            /*
-            val cal = Calendar.getInstance()
-            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minutes ->
-                cal.set(Calendar.HOUR_OF_DAY, hour)
-                cal.set(Calendar.MINUTE, minutes)
-                timeTextView.text = SimpleDateFormat("HH:mm").format(cal.time)
-            }
-            TimePickerDialog(activity, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
-
-             */
 
         }
 
