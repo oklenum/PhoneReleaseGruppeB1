@@ -21,6 +21,9 @@ import com.groupb1.phonefreedom.appManager.AutoReplyManager
 import com.groupb1.phonefreedom.sms.SmsActivity
 import com.groupb1.phonefreedom.appManager.DnDOffActivity
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
+import android.os.Handler;
+import android.widget.ProgressBar;
+
 
 class SecondFragment : Fragment() {
 
@@ -69,6 +72,7 @@ class SecondFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
     }
+
 }
 
 
