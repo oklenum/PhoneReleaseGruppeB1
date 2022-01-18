@@ -34,6 +34,15 @@
         <argument
             android:name="minute"
             app:argType="string" />
+        <argument
+            android:name="day"
+            app:argType="string" />
+        <argument
+            android:name="month"
+            app:argType="string" />
+        <argument
+            android:name="year"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
