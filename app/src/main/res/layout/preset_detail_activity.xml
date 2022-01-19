@@ -27,9 +27,11 @@
         android:id="@+id/remove_button"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_marginTop="400dp"
+        android:backgroundTint="@color/red"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/delete_this_preset" />
+        android:text="@string/delete_this_preset"
+        android:textColor="@color/white"/>
 
 </LinearLayout>
