@@ -52,7 +52,6 @@ class FirstFragment : Fragment() {
     lateinit var datePicker: DatePickerHelper
     private lateinit var timeTextView: TextView
     private lateinit var dateTextView: TextView
-    private lateinit var textView6: TextView
     private var hourStr: String = ""
     private var minuteStr: String = ""
     private var dayStr: String = ""
@@ -81,7 +80,9 @@ class FirstFragment : Fragment() {
         val startTime = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("HH:mm")
         val formatted = startTime.format(formatter).toString()
-        val currentDate = LocalDate.now().toString()
+        val currentDate = LocalDate.now()
+        val formatDate = DateTimeFormatter.ofPattern("dd-MM-YYYY")
+        val formattedDate = currentDate.format(formatDate).toString()
         datePicker = DatePickerHelper(this.requireContext())
         timePicker = TimePickerHelper(this.requireContext(), true, false)
         timeTextView = view.findViewById(R.id.timeView)
@@ -93,7 +94,7 @@ class FirstFragment : Fragment() {
         val checkButton = view.findViewById<Button>(R.id.button3)
         timeTextView.text = formatted
         timeTextView.text = formatted
-        dateTextView.text = currentDate
+        dateTextView.text = formattedDate
 
         timeButton.setOnClickListener {
             showTimePickerDialog()
@@ -111,7 +112,18 @@ class FirstFragment : Fragment() {
                 FirstFragmentDirections.actionFirstFragmentToSecondFragment(
                     hour = hourStr, minute = minuteStr, day = dayStr,
                     month = monthStr, year = yearStr)
-            Navigation.findNavController(view).navigate(action)
+            if (hourStr != "" && minuteStr != "") {
+                Navigation.findNavController(view).navigate(action)
+            } else {
+                val alertBuilder = AlertDialog.Builder(this.context)
+                alertBuilder.setMessage("Please specify a specific time duration to proceed")
+                    .setPositiveButton("OK") {dialog, _ ->
+                        dialog.dismiss()
+                    }
+                val alert = alertBuilder.create()
+                alert.show()
+            }
+
         }
 
         settingsButton.setOnClickListener {
@@ -183,7 +195,7 @@ class FirstFragment : Fragment() {
                 hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
                 minuteStr = if (minute < 10) "0${minute}" else "${minute}"
                 timeTextView.text = "${hourStr}:${minuteStr}"
-                textView6.text = hourStr
+
 
             }
         })

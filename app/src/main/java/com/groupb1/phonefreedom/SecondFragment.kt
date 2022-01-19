@@ -64,7 +64,7 @@ class SecondFragment : Fragment() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -77,7 +77,9 @@ class SecondFragment : Fragment() {
         val currentTime = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("HH:mm")
         val formatted = currentTime.format(formatter).toString()
-        val currentDate = LocalDate.now().toString()
+        val currentDate = LocalDate.now()
+        val formatDate = DateTimeFormatter.ofPattern("dd-MM-YYYY")
+        val formattedDate = currentDate.format(formatDate).toString()
 
         val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
         startActivity(intent)
@@ -96,7 +98,13 @@ class SecondFragment : Fragment() {
         //requireActivity().startService(Intent(activity, ServiceAutoReply()::class.java))
 
         timeLeft.text = "${hourId}:${minuteId}"
-        date.text = "${dayId}-${monthId}-${yearId}"
+
+        if (dayId == "") {
+            date.text = formattedDate
+        } else {
+            date.text = "${dayId}-${monthId}-${yearId}"
+        }
+
 
         val deactivateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
         deactivateButton.setOnClickListener {
