@@ -1,23 +1,5 @@
 package com.groupb1.phonefreedom.presetList
 
-import android.app.Activity
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
-import androidx.recyclerview.widget.RecyclerView
-import com.groupb1.phonefreedom.PresetsAdapter
-import com.groupb1.phonefreedom.PresetsListViewModel
-import com.groupb1.phonefreedom.PresetsListViewModelFactory
-import com.groupb1.phonefreedom.addPreset.AddPresetActivity
-import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
-import com.groupb1.phonefreedom.R
-import com.groupb1.phonefreedom.addPreset.PRESET_DESCRIPTION
-import com.groupb1.phonefreedom.addPreset.PRESET_NAME
-import com.groupb1.phonefreedom.data.Preset
 /*
 const val PRESET_ID = "preset id"
 
