@@ -1,36 +1,21 @@
 package com.groupb1.phonefreedom
 
-import android.Manifest
 import android.content.Intent
-import android.app.NotificationManager
-import android.content.pm.PackageManager
-import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.TimePicker
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
-import androidx.core.content.contentValuesOf
 import androidx.navigation.Navigation
 import com.groupb1.phonefreedom.appManager.DnDOnActivity
 import com.groupb1.phonefreedom.appManager.AutoReplyManager
-import com.groupb1.phonefreedom.sms.SmsActivity
-import com.groupb1.phonefreedom.appManager.DnDOffActivity
-import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
-import android.os.Handler;
-import android.widget.ProgressBar;
 
 import com.groupb1.phonefreedom.services.ServiceAutoReply
 import com.groupb1.phonefreedom.services.ServiceDisturb
-import com.vmadalin.easypermissions.EasyPermissions
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -70,8 +55,6 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
         val currentTime = LocalDateTime.now()
@@ -84,18 +67,11 @@ class SecondFragment : Fragment() {
         val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
         startActivity(intent)
 
-
-        timeLeft = view.findViewById(R.id.timeLeft)
-        date = view.findViewById(R.id.date)
+        timeLeft = view.findViewById(R.id.timeLeftView)
+        date = view.findViewById(R.id.endDateView)
 
         val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
-
-
-
-
-        //requireActivity().startService(Intent(activity, ServiceDisturb()::class.java))
-        //requireActivity().startService(Intent(activity, ServiceAutoReply()::class.java))
 
         timeLeft.text = "${hourId}:${minuteId}"
 
@@ -104,7 +80,6 @@ class SecondFragment : Fragment() {
         } else {
             date.text = "${dayId}-${monthId}-${yearId}"
         }
-
 
         val deactivateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
         deactivateButton.setOnClickListener {
@@ -126,12 +101,9 @@ class SecondFragment : Fragment() {
 
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
     }
-
-
 
 }
 

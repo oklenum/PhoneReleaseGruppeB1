@@ -7,7 +7,6 @@
     android:background="@drawable/main_background"
     tools:context=".SecondFragment">
 
-
     <TextView
         android:id="@+id/phone_freed"
         android:layout_width="wrap_content"
@@ -16,7 +15,7 @@
         android:text="@string/phone_freed"
         android:textIsSelectable="false"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/deactivate"
+        app:layout_constraintBottom_toBottomOf="@+id/deactivateButtonLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +23,7 @@
         app:layout_constraintVertical_bias="0.005" />
 
     <RelativeLayout
-        android:id="@+id/deactivate"
+        android:id="@+id/deactivateButtonLayout"
         android:layout_width="375dp"
         android:layout_height="144dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +63,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/isActiveText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/alfa_slab_one"
@@ -79,7 +78,7 @@
         app:layout_constraintVertical_bias="0.079" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/autoReplyIkon"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:src="@drawable/ic_baseline_reply_all_24"
@@ -91,7 +90,7 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/lægPåIkon"
         android:layout_width="59dp"
         android:layout_height="64dp"
         android:src="@drawable/ic_baseline_call_end_24"
@@ -103,7 +102,7 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/telefonForbudtIkon"
         android:layout_width="54dp"
         android:layout_height="64dp"
         android:src="@drawable/ic_baseline_no_cell_24"
@@ -115,7 +114,7 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/dørIkon"
         android:layout_width="60dp"
         android:layout_height="64dp"
         android:src="@drawable/ic_baseline_meeting_room_24"
@@ -127,7 +126,7 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/telefonPauseIkon"
         android:layout_width="58dp"
         android:layout_height="64dp"
         android:src="@drawable/ic_baseline_phone_paused_24"
@@ -136,15 +135,10 @@
         app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" /><![CDATA[
-
-    app:layout_constraintTop_toTopOf="@+id/progressBar3"
-    app:layout_constraintVertical_bias="0.382" />
-
-    ]]>
+        app:layout_constraintVertical_bias="0.238" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/disablesAtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Disables at"
@@ -158,37 +152,36 @@
         app:layout_constraintVertical_bias="0.638" />
 
     <TextView
-        android:id="@+id/timeLeft"
+        android:id="@+id/timeLeftView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="04:00"
         android:textSize="40dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/deactivate"
+        app:layout_constraintBottom_toBottomOf="@+id/deactivateButtonLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintTop_toBottomOf="@+id/disablesAtView"
+        app:layout_constraintVertical_bias="0.046" />
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/endDateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="24/12/2022"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/deactivate"
+        app:layout_constraintBottom_toTopOf="@+id/deactivateButtonLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeLeft" />
+        app:layout_constraintTop_toBottomOf="@+id/timeLeftView" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/circularProgressBar"
         style="@android:style/Widget.Holo.Light.ProgressBar.Small.Title"
         android:layout_width="134dp"
-
         android:layout_height="117dp"
-        app:layout_constraintBottom_toBottomOf="@+id/deactivate"
+        app:layout_constraintBottom_toBottomOf="@+id/deactivateButtonLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -196,6 +189,5 @@
         app:layout_constraintVertical_bias="0.462" />
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.62" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
