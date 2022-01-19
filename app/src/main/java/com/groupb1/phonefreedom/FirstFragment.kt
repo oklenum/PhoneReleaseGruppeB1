@@ -86,7 +86,6 @@ class FirstFragment : Fragment() {
         timePicker = TimePickerHelper(this.requireContext(), true, false)
         timeTextView = view.findViewById(R.id.timeView)
         dateTextView = view.findViewById(R.id.dateView)
-        textView6 = view.findViewById(R.id.textView6)
         val timeButton = view.findViewById<ImageButton>(R.id.selectTimeBtn)
         val dateButton = view.findViewById<ImageButton>(R.id.selectDateBtn)
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
