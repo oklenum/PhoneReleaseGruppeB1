@@ -25,13 +25,11 @@ open class AutoReplyManager: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-
         mContext = applicationContext
         mActivity = this@AutoReplyManager
 
         checkPermissionSMS()
-        autoReply()
+        //autoReply()
         finish()
 
     }
@@ -77,26 +75,5 @@ open class AutoReplyManager: AppCompatActivity() {
         registerReceiver(br, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
     }
 
-    fun editAutoReply() {
 
-    }
-/*
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode==111 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-            autoReply()
-    }
- */
-
-/*
-    private fun permissionCheck() {
-        val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
-        startActivity(intent)
-    }
-
- */
 }

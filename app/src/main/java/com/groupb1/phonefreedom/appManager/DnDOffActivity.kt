@@ -17,7 +17,6 @@ open class DnDOffActivity : AppCompatActivity() {
     private lateinit var mNotificationManager: NotificationManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
 
         // Get the application context
         mContext = applicationContext
@@ -30,7 +29,7 @@ open class DnDOffActivity : AppCompatActivity() {
         // Get the notification manager instance
         mNotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        // Total silence the device, turn off all notifications
+        // Turns off DnD
 
         changeInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL)
         finish()

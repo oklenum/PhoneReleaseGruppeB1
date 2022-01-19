@@ -1,7 +1,9 @@
 package com.groupb1.phonefreedom
 
+import android.Manifest
 import android.content.Intent
 import android.app.NotificationManager
+import android.content.pm.PackageManager
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
@@ -15,6 +17,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.TimePicker
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.contentValuesOf
 import androidx.navigation.Navigation
 import com.groupb1.phonefreedom.appManager.DnDOnActivity
 import com.groupb1.phonefreedom.appManager.AutoReplyManager
@@ -24,6 +28,12 @@ import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
 import android.os.Handler;
 import android.widget.ProgressBar;
 
+import com.groupb1.phonefreedom.services.ServiceAutoReply
+import com.groupb1.phonefreedom.services.ServiceDisturb
+import com.vmadalin.easypermissions.EasyPermissions
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class SecondFragment : Fragment() {
 
@@ -60,17 +70,30 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
+        val currentTime = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("HH:mm")
+        val formatted = currentTime.format(formatter).toString()
+        val currentDate = LocalDate.now().toString()
+
         val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
         startActivity(intent)
+
 
         timeLeft = view.findViewById(R.id.timeLeft)
         date = view.findViewById(R.id.date)
 
         val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
+
+
+
+
+        //requireActivity().startService(Intent(activity, ServiceDisturb()::class.java))
+        //requireActivity().startService(Intent(activity, ServiceAutoReply()::class.java))
 
         timeLeft.text = "${hourId}:${minuteId}"
         date.text = "${dayId}-${monthId}-${yearId}"
@@ -81,9 +104,26 @@ class SecondFragment : Fragment() {
         }
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().startService(Intent(activity, ServiceDisturb()::class.java))
+        requireActivity().startService(Intent(activity, ServiceAutoReply()::class.java))
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
     }
+
+
 
 }
 

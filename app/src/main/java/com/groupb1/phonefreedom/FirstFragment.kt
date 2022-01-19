@@ -2,7 +2,6 @@ package com.groupb1.phonefreedom
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -25,24 +24,20 @@ import com.groupb1.phonefreedom.appManager.DnDOffActivity
 import com.groupb1.phonefreedom.data.Preset
 import com.groupb1.phonefreedom.presetDetail.PresetDetailActivity
 import com.vmadalin.easypermissions.EasyPermissions
-import com.groupb1.phonefreedom.sms.SmsActivity
 //import com.groupb1.phonefreedom.presetList.PRESET_ID
 //import com.groupb1.phonefreedom.presetList.PresetsListActivity
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.util.*
-import android.content.DialogInterface
-import android.widget.TimePicker
-import android.app.TimePickerDialog
 
 import android.widget.CheckBox
-import android.widget.CompoundButton
 import android.content.Context.MODE_PRIVATE
 
 import android.content.SharedPreferences
-import java.text.SimpleDateFormat
+import com.groupb1.phonefreedom.presetList.PresetsAdapter
+import com.groupb1.phonefreedom.services.ServiceAutoReply
+import com.groupb1.phonefreedom.services.ServiceDisturb
 
 /**
  * A simple [Fragment] subclass.
@@ -118,8 +113,6 @@ class FirstFragment : Fragment() {
                     hour = hourStr, minute = minuteStr, day = dayStr,
                     month = monthStr, year = yearStr)
             Navigation.findNavController(view).navigate(action)
-
-
         }
 
         settingsButton.setOnClickListener {
@@ -153,6 +146,9 @@ class FirstFragment : Fragment() {
             val intent2 = Intent(activity, DnDOffActivity()::class.java)
             startActivity(intent2)
         }
+
+        val intent3 = Intent(activity, DnDOffActivity()::class.java)
+        startActivity(intent3)
 
         val mDialog: AlertDialog = alertBuilder.create()
         mDialog.show()
@@ -195,8 +191,6 @@ class FirstFragment : Fragment() {
 
     }
 
-
-
     private fun showDatePickerDialog() {
         val cal = Calendar.getInstance()
         val d = cal.get(Calendar.DAY_OF_MONTH)
@@ -226,6 +220,9 @@ class FirstFragment : Fragment() {
 
             }
         })
+
+        requireActivity().stopService(Intent(activity, ServiceDisturb()::class.java))
+        requireActivity().stopService(Intent(activity, ServiceAutoReply()::class.java))
 
     }
 
