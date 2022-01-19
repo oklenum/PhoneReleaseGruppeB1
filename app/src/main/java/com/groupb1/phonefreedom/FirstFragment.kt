@@ -101,7 +101,6 @@ class FirstFragment : Fragment() {
 
         }
 
-
         dateButton.setOnClickListener {
             showDatePickerDialog()
         }
@@ -177,11 +176,9 @@ class FirstFragment : Fragment() {
             mDialog.show()
         }
 
-
         actionButton.setOnClickListener {
             actionButtonOnClick()
         }
-
 
         return view
     }
@@ -195,8 +192,6 @@ class FirstFragment : Fragment() {
                 hourStr = if (hourOfDay < 10) "0${hourOfDay}" else "${hourOfDay}"
                 minuteStr = if (minute < 10) "0${minute}" else "${minute}"
                 timeTextView.text = "${hourStr}:${minuteStr}"
-
-
             }
         })
 
@@ -264,7 +259,4 @@ class FirstFragment : Fragment() {
         super.onDestroyView()
 
     }
-
-
-
 }

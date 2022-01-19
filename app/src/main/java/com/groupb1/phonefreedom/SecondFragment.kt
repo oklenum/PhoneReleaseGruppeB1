@@ -70,8 +70,6 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
         val currentTime = LocalDateTime.now()
@@ -84,18 +82,11 @@ class SecondFragment : Fragment() {
         val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
         startActivity(intent)
 
-
         timeLeft = view.findViewById(R.id.timeLeft)
         date = view.findViewById(R.id.date)
 
         val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
-
-
-
-
-        //requireActivity().startService(Intent(activity, ServiceDisturb()::class.java))
-        //requireActivity().startService(Intent(activity, ServiceAutoReply()::class.java))
 
         timeLeft.text = "${hourId}:${minuteId}"
 
@@ -104,7 +95,6 @@ class SecondFragment : Fragment() {
         } else {
             date.text = "${dayId}-${monthId}-${yearId}"
         }
-
 
         val deactivateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
         deactivateButton.setOnClickListener {
@@ -126,12 +116,9 @@ class SecondFragment : Fragment() {
 
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
     }
-
-
 
 }
 
