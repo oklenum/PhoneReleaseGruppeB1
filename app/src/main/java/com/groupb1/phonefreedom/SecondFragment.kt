@@ -13,12 +13,23 @@ import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
 import com.groupb1.phonefreedom.appManager.DnDOnActivity
 import com.groupb1.phonefreedom.appManager.AutoReplyManager
+import com.groupb1.phonefreedom.appManager.StopActivities
 
 import com.groupb1.phonefreedom.services.ServiceAutoReply
 import com.groupb1.phonefreedom.services.ServiceDisturb
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import android.app.AlarmManager
+
+import androidx.core.content.ContextCompat.getSystemService
+
+import android.app.PendingIntent
+import android.content.Context
+import androidx.core.content.ContextCompat
+import com.groupb1.phonefreedom.appManager.Receiver
+import java.util.*
+
 
 class SecondFragment : Fragment() {
 
@@ -93,11 +104,42 @@ class SecondFragment : Fragment() {
 
         requireActivity().startService(Intent(activity, ServiceDisturb()::class.java))
         requireActivity().startService(Intent(activity, ServiceAutoReply()::class.java))
+
+        val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, Receiver::class.java)
+
+        intent.action = "StopServices"
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+
+        val calendar = Calendar.getInstance()
+        val calSet = calendar.clone() as Calendar
+        calSet.set(Calendar.HOUR_OF_DAY, hourId.toInt())
+        calSet.set(Calendar.MINUTE, minuteId.toInt())
+        calSet.set(Calendar.SECOND, 0)
+        calSet.set(Calendar.MILLISECOND, 0)
+
+        val msUntilTriggerHour: Long = 10000
+
+        val alarmTimeAtUTC: Long = calendar.timeInMillis - System.currentTimeMillis()
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            alarmManager.setAlarmClock(
+                AlarmManager.AlarmClockInfo(calSet.timeInMillis, pendingIntent),
+                pendingIntent
+            )
+        } else {
+            alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                calSet.timeInMillis,
+                pendingIntent
+            )
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onResume() {
         super.onResume()
+
 
     }
 

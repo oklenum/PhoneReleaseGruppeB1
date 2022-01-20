@@ -4,6 +4,7 @@
     // permission to send SMS. TODO: User needs to confirm this.
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
@@ -34,12 +35,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".appManager.Receiver"
+            android:enabled="true"
+            android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                </intent-filter>
+        </receiver>
         <activity android:name=".addPreset.AddPresetActivity" />
         <activity android:name=".presetDetail.PresetDetailActivity" />
         <activity android:name=".appManager.DnDOnActivity" />
         <activity android:name=".appManager.DnDOffActivity" />
         <activity android:name=".sms.SmsActivity"/>
         <activity android:name=".appManager.AutoReplyManager"/>
+        <activity android:name=".appManager.StopActivities"/>
 
 
         <meta-data

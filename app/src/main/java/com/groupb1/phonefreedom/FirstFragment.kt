@@ -157,8 +157,8 @@ class FirstFragment : Fragment() {
             startActivity(intent2)
         }
 
-        val intent3 = Intent(activity, DnDOffActivity()::class.java)
-        startActivity(intent3)
+        //val intent3 = Intent(activity, DnDOffActivity()::class.java)
+        //startActivity(intent3)
 
         val mDialog: AlertDialog = alertBuilder.create()
         mDialog.show()
