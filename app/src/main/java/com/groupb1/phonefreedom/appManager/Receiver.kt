@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import com.groupb1.phonefreedom.data.CheckSer
 import com.groupb1.phonefreedom.services.ServiceAutoReply
 import com.groupb1.phonefreedom.services.ServiceDisturb
 
@@ -16,6 +17,7 @@ class Receiver : BroadcastReceiver() {
             Log.d("Alarm","AlarmReceived")
             context?.startActivity(stopDnD)
             context?.stopService(stopARService)
+            CheckSer.check = "Stopped"
         }
     }
 }

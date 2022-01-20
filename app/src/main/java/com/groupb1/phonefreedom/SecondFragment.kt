@@ -28,6 +28,7 @@ import android.app.PendingIntent
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.groupb1.phonefreedom.appManager.Receiver
+import com.groupb1.phonefreedom.data.CheckSer
 import java.util.*
 
 
@@ -58,6 +59,7 @@ class SecondFragment : Fragment() {
             monthId = it.getString(MONTH).toString()
             yearId = it.getString(YEAR).toString()
         }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -80,7 +82,7 @@ class SecondFragment : Fragment() {
 
         timeLeft = view.findViewById(R.id.timeLeftView)
         date = view.findViewById(R.id.endDateView)
-
+        CheckSer.check = ""
         val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
 
@@ -139,7 +141,10 @@ class SecondFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onResume() {
         super.onResume()
-
+        if (CheckSer.check == "Stopped") {
+            view?.let { Navigation.findNavController(it).navigate(
+                R.id.action_secondFragment_to_firstFragment) }
+        }
 
     }
 
