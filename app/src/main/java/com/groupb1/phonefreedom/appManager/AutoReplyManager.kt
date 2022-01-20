@@ -35,7 +35,7 @@ open class AutoReplyManager: AppCompatActivity() {
         mActivity = this@AutoReplyManager
 
         checkPermissionSMS()
-        autoReply()
+        //autoReply()
         finish()
 
     }
