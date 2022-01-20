@@ -17,6 +17,7 @@ import android.telephony.SmsManager
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContentProviderCompat.requireContext
+import com.groupb1.phonefreedom.appManager.StopActivities
 import com.groupb1.phonefreedom.data.Reply
 import com.vmadalin.easypermissions.EasyPermissions
 
@@ -26,7 +27,7 @@ class ServiceAutoReply : Service() {
     var smsText = ""
     private var mContext: Context? = null
     private var mActivity: Activity? = null
-    private var yourReceiver: BroadcastReceiver? = null
+    private var mReceiver: BroadcastReceiver? = null
 
     override fun onBind(p0: Intent?): IBinder? {
         return null
@@ -41,7 +42,7 @@ class ServiceAutoReply : Service() {
 
         val theFilter = IntentFilter()
         theFilter.addAction(ACTION)
-        this.yourReceiver = object : BroadcastReceiver() {
+        this.mReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     for (sms in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
@@ -51,7 +52,7 @@ class ServiceAutoReply : Service() {
                 }
             }
         }
-        registerReceiver(yourReceiver, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
+        registerReceiver(mReceiver, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
 
     }
 
@@ -111,6 +112,6 @@ class ServiceAutoReply : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        unregisterReceiver(yourReceiver)
+        unregisterReceiver(mReceiver)
     }
 }

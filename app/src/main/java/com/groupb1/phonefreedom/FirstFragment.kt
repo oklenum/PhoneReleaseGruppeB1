@@ -35,6 +35,7 @@ import android.widget.CheckBox
 import android.content.Context.MODE_PRIVATE
 
 import android.content.SharedPreferences
+import com.groupb1.phonefreedom.data.CheckSer
 import com.groupb1.phonefreedom.presetList.PresetsAdapter
 import com.groupb1.phonefreedom.services.ServiceAutoReply
 import com.groupb1.phonefreedom.services.ServiceDisturb
@@ -95,7 +96,7 @@ class FirstFragment : Fragment() {
         timeTextView.text = formatted
         timeTextView.text = formatted
         dateTextView.text = formattedDate
-
+        CheckSer.check = ""
         timeButton.setOnClickListener {
             showTimePickerDialog()
 
@@ -157,8 +158,8 @@ class FirstFragment : Fragment() {
             startActivity(intent2)
         }
 
-        val intent3 = Intent(activity, DnDOffActivity()::class.java)
-        startActivity(intent3)
+        //val intent3 = Intent(activity, DnDOffActivity()::class.java)
+        //startActivity(intent3)
 
         val mDialog: AlertDialog = alertBuilder.create()
         mDialog.show()

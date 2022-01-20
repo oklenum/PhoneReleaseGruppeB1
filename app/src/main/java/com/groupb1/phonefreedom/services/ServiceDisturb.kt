@@ -1,11 +1,14 @@
 package com.groupb1.phonefreedom.services
 
 import android.app.*
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Build
 import android.os.IBinder
+import android.provider.ContactsContract.Intents.Insert.ACTION
 import android.provider.Settings
 import androidx.annotation.RequiresApi
 
@@ -13,6 +16,7 @@ class ServiceDisturb : Service() {
 
     private var mContext: Context? = null
     private var mActivity: Activity? = null
+    private var mReceiver: BroadcastReceiver? = null
     private lateinit var mNotificationManager: NotificationManager
 
     override fun onBind(intent: Intent?): IBinder? {
@@ -26,6 +30,14 @@ class ServiceDisturb : Service() {
         // Get the application context
         mContext = applicationContext
 
+        val filter = IntentFilter()
+        filter.addAction(ACTION)
+        this.mReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                changeInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
+            }
+        }
+        registerReceiver(mReceiver, IntentFilter("Service Active"))
         /*
             NotificationManager
                 Class to notify the user of events that happen. This is how you tell
@@ -37,7 +49,7 @@ class ServiceDisturb : Service() {
         // Turns on DnD
 
 
-        changeInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
+        //changeInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
 
     }
     private fun changeInterruptionFilter(interruptionFilter: Int) {
@@ -84,5 +96,10 @@ class ServiceDisturb : Service() {
         val service = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         service.createNotificationChannel(chan)
         return channelId
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(mReceiver)
     }
 }
