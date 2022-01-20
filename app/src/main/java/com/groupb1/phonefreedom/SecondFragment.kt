@@ -80,8 +80,8 @@ class SecondFragment : Fragment() {
         val intent = Intent(activity, DnDOnActivity()::class.java) // Activates DND
         startActivity(intent)
 
-        timeLeft = view.findViewById(R.id.timeLeftView)
-        date = view.findViewById(R.id.endDateView)
+        timeLeft = view.findViewById(R.id.timeLeft)
+        date = view.findViewById(R.id.date)
         CheckSer.check = ""
         val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
