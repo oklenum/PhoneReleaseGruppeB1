@@ -10,8 +10,12 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.provider.CallLog
 import android.provider.Telephony
+import android.telephony.PhoneStateListener
 import android.telephony.SmsManager
+import android.telephony.TelephonyManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.groupb1.phonefreedom.sms.SmsActivity
@@ -25,6 +29,8 @@ open class AutoReplyManager: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //setContentView(R.layout.activity_main)
+
         mContext = applicationContext
         mActivity = this@AutoReplyManager
 
@@ -39,12 +45,21 @@ open class AutoReplyManager: AppCompatActivity() {
             ActivityCompat.checkSelfPermission(this,android.Manifest.permission.RECEIVE_SMS)!= PackageManager.PERMISSION_GRANTED ||
             ActivityCompat.checkSelfPermission(this,android.Manifest.permission.READ_SMS)!= PackageManager.PERMISSION_GRANTED ||
             ActivityCompat.checkSelfPermission(this,android.Manifest.permission.READ_PHONE_NUMBERS)!= PackageManager.PERMISSION_GRANTED ||
-            ActivityCompat.checkSelfPermission(this,android.Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.checkSelfPermission(this,android.Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED ||
+            ActivityCompat.checkSelfPermission(this,android.Manifest.permission.READ_CALL_LOG)!= PackageManager.PERMISSION_GRANTED )
         {
             ActivityCompat.requestPermissions(
                 this, arrayOf(
                 Manifest.permission.SEND_SMS, Manifest.permission.RECEIVE_SMS,
-                Manifest.permission.READ_PHONE_NUMBERS, Manifest.permission.READ_PHONE_STATE),
+                Manifest.permission.READ_PHONE_NUMBERS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG),
+                111)
+        }
+    }
+    fun checkPermissionCall() {
+        if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.READ_PHONE_STATE),
                 111)
         }
     }
@@ -74,6 +89,49 @@ open class AutoReplyManager: AppCompatActivity() {
         }
         registerReceiver(br, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
     }
+    private fun autoReplyOnCall(){
+        var br = object: BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                var number = getRecentCallerNumber()
+                if (number != null) {
+                    sendSMS(number)
+                }
+            }
+        }
+        registerReceiver(br, IntentFilter("android.intent.action.PHONE_STATE"))
+    }
+    private fun getRecentCallerNumber(): String? {
+        val managedCursor = contentResolver.query(
+            CallLog.Calls.CONTENT_URI,
+            null, null, null, null
+        )
+        val number = managedCursor?.getColumnIndex(CallLog.Calls.NUMBER)
+        managedCursor?.moveToLast()
+        val phoneNumber = number?.let { managedCursor?.getString(it) }
 
+        return phoneNumber
+    }
 
+    fun editAutoReply() {
+
+    }
+/*
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode==111 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+            autoReply()
+    }
+ */
+
+/*
+    private fun permissionCheck() {
+        val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+        startActivity(intent)
+    }
+
+ */
 }
