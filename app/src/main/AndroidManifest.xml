@@ -22,10 +22,10 @@
 
         <service
             android:name=".services.ServiceDisturb"
-            android:enabled="true"></service>
+            android:enabled="true" />
         <service
             android:name=".services.ServiceAutoReply"
-            android:enabled="true"></service>
+            android:enabled="true" />
 
         <activity
             android:name=".MainActivity"

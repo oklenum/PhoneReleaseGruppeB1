@@ -33,18 +33,19 @@ class ServiceDisturb : Service() {
         val filter = IntentFilter()
         filter.addAction(ACTION)
         this.mReceiver = object : BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
+            override fun onReceive(context: Context, intent: Intent) {
+                mNotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
                 changeInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
             }
         }
-        registerReceiver(mReceiver, IntentFilter("Service Active"))
+        registerReceiver(mReceiver, filter)
         /*
             NotificationManager
                 Class to notify the user of events that happen. This is how you tell
                 the user that something has happened in the background.
         */
         // Get the notification manager instance
-        mNotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        //mNotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
         // Turns on DnD
 
