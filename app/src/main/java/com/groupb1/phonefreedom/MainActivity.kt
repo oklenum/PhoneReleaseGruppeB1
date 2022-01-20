@@ -19,19 +19,23 @@ import android.provider.Settings
 import android.provider.Telephony
 import android.telecom.Call
 import android.telecom.InCallService
-import android.telephony.SmsManager
-import android.telephony.TelephonyManager
+import android.telephony.*
 import android.util.Log
 import android.widget.SimpleCursorAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import com.groupb1.phonefreedom.receivers.CallReceiver
 import java.lang.Long
 import java.util.*
 import kotlin.math.log
 
 open class MainActivity : AppCompatActivity() {
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    val phoneStateListener = PhoneStateListener() {
+
+    }
+
 
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -39,12 +43,7 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // var details = getCallDetails()
 
-        // var number = getRecentCallerNumber()
-
-        //if (number != null) {
-          //  Log.d("TAG", number)
         }
 
 
