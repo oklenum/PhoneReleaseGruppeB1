@@ -1,25 +1,9 @@
 package com.groupb1.phonefreedom.receivers
 
 import android.content.BroadcastReceiver
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import android.provider.CallLog
-import android.telecom.Call
 import android.telephony.TelephonyManager
-import android.util.Log
-import android.widget.Toast
-import java.lang.Exception
-import android.telephony.PhoneStateListener
-import android.telecom.Call.Details
-import android.telecom.InCallService
-import android.telecom.TelecomManager
-import android.telephony.PhoneNumberUtils
-import androidx.annotation.RequiresApi
-import com.groupb1.phonefreedom.MainActivity
-import com.groupb1.phonefreedom.appManager.AutoReplyManager
-import com.groupb1.phonefreedom.databinding.ActivityMainBinding
 import java.util.*
 
 

@@ -39,6 +39,8 @@ import com.groupb1.phonefreedom.data.CheckSer
 import com.groupb1.phonefreedom.presetList.PresetsAdapter
 import com.groupb1.phonefreedom.services.ServiceAutoReply
 import com.groupb1.phonefreedom.services.ServiceDisturb
+import java.sql.Time
+import java.time.LocalTime
 
 /**
  * A simple [Fragment] subclass.
@@ -58,6 +60,7 @@ class FirstFragment : Fragment() {
     private var dayStr: String = ""
     private var monthStr: String = ""
     private var yearStr: String = ""
+    private var timeCheck = 0
     private val presetsListViewModel by viewModels<PresetsListViewModel> {
         PresetsListViewModelFactory(this)
     }
@@ -80,10 +83,14 @@ class FirstFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_first, container, false)
         val startTime = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("HH:mm")
-        val formatted = startTime.format(formatter).toString()
+        val formatted = startTime.format(formatter)
         val currentDate = LocalDate.now()
         val formatDate = DateTimeFormatter.ofPattern("dd-MM-YYYY")
-        val formattedDate = currentDate.format(formatDate).toString()
+        val formattedDate = currentDate.format(formatDate)
+        var dateSet = LocalDate.now()
+        var dateSetFormatted = dateSet.format(formatDate)
+
+
         datePicker = DatePickerHelper(this.requireContext())
         timePicker = TimePickerHelper(this.requireContext(), true, false)
         timeTextView = view.findViewById(R.id.timeView)
@@ -93,8 +100,8 @@ class FirstFragment : Fragment() {
         val actionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         val settingsButton = view.findViewById<ImageButton>(R.id.settingsButton)
         val checkButton = view.findViewById<Button>(R.id.button3)
-        timeTextView.text = formatted
-        timeTextView.text = formatted
+        timeTextView.text = formatted.toString()
+        timeTextView.text = formatted.toString()
         dateTextView.text = formattedDate
         CheckSer.check = ""
         timeButton.setOnClickListener {
@@ -112,7 +119,42 @@ class FirstFragment : Fragment() {
                 FirstFragmentDirections.actionFirstFragmentToSecondFragment(
                     hour = hourStr, minute = minuteStr, day = dayStr,
                     month = monthStr, year = yearStr)
-            if (hourStr != "" && minuteStr != "") {
+
+            if ( hourStr != "" && minuteStr != "") {
+                val timeSet = LocalTime.of(hourStr.toInt(), minuteStr.toInt())
+                val timeSetFormatted = timeSet.format(formatter)
+                if (timeSetFormatted <= formatted) {
+                    val alertBuilder1 = AlertDialog.Builder(this.context)
+                    alertBuilder1.setMessage("Please specify a valid Time to proceed")
+                        .setPositiveButton("OK") {dialog1, _ ->
+                            dialog1.dismiss()
+                        }
+                    val alert1 = alertBuilder1.create()
+                    alert1.show()
+                    timeCheck = 1
+                } else {
+                    timeCheck = 0
+                }
+            }
+
+            if (dayStr != "") {
+                dateSet = LocalDate.of(yearStr.toInt(), monthStr.toInt(), dayStr.toInt())
+                dateSetFormatted = dateSet.format((formatDate))
+                if (dateSetFormatted < formattedDate) {
+                    val alertBuilder2 = AlertDialog.Builder(this.context)
+                    alertBuilder2.setMessage("Please specify a valid Date to proceed")
+                        .setPositiveButton("OK") {dialog1, _ ->
+                            dialog1.dismiss()
+                        }
+                    val alert2 = alertBuilder2.create()
+                    alert2.show()
+                    timeCheck = 1
+                } else {
+                    timeCheck = 0
+                }
+            }
+
+            if (hourStr != "" && minuteStr != "" && timeCheck == 0) {
                 Navigation.findNavController(view).navigate(action)
             } else {
                 val alertBuilder = AlertDialog.Builder(this.context)
@@ -123,6 +165,7 @@ class FirstFragment : Fragment() {
                 val alert = alertBuilder.create()
                 alert.show()
             }
+
 
         }
 
@@ -158,8 +201,6 @@ class FirstFragment : Fragment() {
             startActivity(intent2)
         }
 
-        val intent3 = Intent(activity, DnDOffActivity()::class.java)
-        startActivity(intent3)
 
         val mDialog: AlertDialog = alertBuilder.create()
         mDialog.show()

@@ -147,36 +147,8 @@
         app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" /><![CDATA[
+        app:layout_constraintVertical_bias="0.265" />
 
-
-
-
-
-
-
-    app:layout_constraintTop_toTopOf="@+id/progressBar3"
-    app:layout_constraintVertical_bias="0.382" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ]]>
 
     <TextView
         android:id="@+id/textView5"

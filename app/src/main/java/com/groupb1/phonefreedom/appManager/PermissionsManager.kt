@@ -2,7 +2,6 @@ package com.groupb1.phonefreedom.appManager
 
 import android.Manifest
 import android.app.Activity
-import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -12,15 +11,11 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.CallLog
 import android.provider.Telephony
-import android.telephony.PhoneStateListener
 import android.telephony.SmsManager
-import android.telephony.TelephonyManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.groupb1.phonefreedom.sms.SmsActivity
 
-open class AutoReplyManager: AppCompatActivity() {
+open class PermissionsManager: AppCompatActivity() {
 
     var phoneNumber = ""
     var smsText = ""
@@ -32,7 +27,7 @@ open class AutoReplyManager: AppCompatActivity() {
         //setContentView(R.layout.activity_main)
 
         mContext = applicationContext
-        mActivity = this@AutoReplyManager
+        mActivity = this@PermissionsManager
 
         checkPermissionSMS()
         //autoReply()

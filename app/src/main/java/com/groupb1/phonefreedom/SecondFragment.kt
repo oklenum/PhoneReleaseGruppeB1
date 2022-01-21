@@ -12,8 +12,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
 import com.groupb1.phonefreedom.appManager.DnDOnActivity
-import com.groupb1.phonefreedom.appManager.AutoReplyManager
-import com.groupb1.phonefreedom.appManager.StopActivities
+import com.groupb1.phonefreedom.appManager.PermissionsManager
 
 import com.groupb1.phonefreedom.services.ServiceAutoReply
 import com.groupb1.phonefreedom.services.ServiceDisturb
@@ -22,11 +21,9 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import android.app.AlarmManager
 
-import androidx.core.content.ContextCompat.getSystemService
-
 import android.app.PendingIntent
 import android.content.Context
-import androidx.core.content.ContextCompat
+import com.groupb1.phonefreedom.appManager.DnDOffActivity
 import com.groupb1.phonefreedom.appManager.Receiver
 import com.groupb1.phonefreedom.data.CheckSer
 import java.util.*
@@ -83,7 +80,7 @@ class SecondFragment : Fragment() {
         timeLeft = view.findViewById(R.id.timeLeft)
         date = view.findViewById(R.id.date)
         CheckSer.check = ""
-        val intent2 = Intent(activity, AutoReplyManager::class.java) // Activates SMS Auto reply
+        val intent2 = Intent(activity, PermissionsManager::class.java) // Activates SMS Auto reply
         startActivity(intent2)
 
         timeLeft.text = "${hourId}:${minuteId}"
@@ -97,6 +94,8 @@ class SecondFragment : Fragment() {
         val deactivateButton = view.findViewById<ImageButton>(R.id.deactivateButton)
         deactivateButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_firstFragment)
+            val iStopDnD = Intent(activity, DnDOffActivity()::class.java)
+            startActivity(iStopDnD)
         }
         return view
     }

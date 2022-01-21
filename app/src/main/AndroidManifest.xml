@@ -52,7 +52,7 @@
         <activity android:name=".appManager.DnDOnActivity" />
         <activity android:name=".appManager.DnDOffActivity" />
         <activity android:name=".sms.SmsActivity" />
-        <activity android:name=".appManager.AutoReplyManager" />
+        <activity android:name=".appManager.PermissionsManager" />
         <activity android:name=".appManager.StopActivities" />
 
         <meta-data
