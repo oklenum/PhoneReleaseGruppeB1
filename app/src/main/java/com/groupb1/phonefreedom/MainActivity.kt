@@ -31,12 +31,6 @@ import kotlin.math.log
 
 open class MainActivity : AppCompatActivity() {
 
-    @RequiresApi(Build.VERSION_CODES.Q)
-    val phoneStateListener = PhoneStateListener() {
-
-    }
-
-
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {

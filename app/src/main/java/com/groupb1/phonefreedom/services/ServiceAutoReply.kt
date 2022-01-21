@@ -11,6 +11,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
+import android.provider.CallLog
 import android.provider.ContactsContract.Intents.Insert.ACTION
 import android.provider.Telephony
 import android.telephony.SmsManager
@@ -19,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.groupb1.phonefreedom.appManager.StopActivities
 import com.groupb1.phonefreedom.data.Reply
+import com.groupb1.phonefreedom.listener.PhoneStateListener
 import com.vmadalin.easypermissions.EasyPermissions
 
 class ServiceAutoReply : Service() {
@@ -38,8 +40,13 @@ class ServiceAutoReply : Service() {
     override fun onCreate() {
         super.onCreate()
         mContext = applicationContext
-        //autoReply()
 
+        autoReplyOnSMS()
+        //autoReplyOnCall() Non functional at this moment. Crashes application on call received.
+
+    }
+
+    private fun autoReplyOnSMS() {
         val theFilter = IntentFilter()
         theFilter.addAction(ACTION)
         this.mReceiver = object : BroadcastReceiver() {
@@ -55,28 +62,38 @@ class ServiceAutoReply : Service() {
         registerReceiver(mReceiver, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
 
     }
-
-
+    private fun autoReplyOnCall() {
+        val theFilter = IntentFilter()
+        theFilter.addAction(ACTION)
+        var listener = PhoneStateListener()
+        var state = listener.getLastState()
+        this.mReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                var number = getRecentCallerNumber()
+                if (number != null && state == 0) {
+                    sendSMS(number, Reply.description)
+                }
+            }
+        }
+        registerReceiver(mReceiver, IntentFilter("android.intent.action.PHONE_STATE"))
+    }
     fun sendSMS(phoneNumber: String, msg: String) {
         var sms = SmsManager.getDefault()
         sms.sendTextMessage(phoneNumber, "me", msg, null, null)
     }
-    private fun autoReply(){
-        var br = object: BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    for (sms in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
-                        phoneNumber = sms.displayOriginatingAddress.toString()
-                        sendSMS(phoneNumber, Reply.description)
-                    }
-                }
-            }
-        }
-        registerReceiver(br, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
-    }
-
     fun editAutoReply() {
 
+    }
+    private fun getRecentCallerNumber(): String? {
+        val managedCursor = contentResolver.query(
+            CallLog.Calls.CONTENT_URI,
+            null, null, null, null
+        )
+        val number = managedCursor?.getColumnIndex(CallLog.Calls.NUMBER)
+        managedCursor?.moveToLast()
+        val phoneNumber = number?.let { managedCursor?.getString(it) }
+
+        return phoneNumber
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -114,4 +131,20 @@ class ServiceAutoReply : Service() {
         super.onDestroy()
         unregisterReceiver(mReceiver)
     }
+
+    /*
+    private fun autoReplyOnSMS(){
+        var br = object: BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    for (sms in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
+                        phoneNumber = sms.displayOriginatingAddress.toString()
+                        sendSMS(phoneNumber, Reply.description)
+                    }
+                }
+            }
+        }
+        registerReceiver(br, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
+    }
+     */
 }

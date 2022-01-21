@@ -51,7 +51,8 @@ open class AutoReplyManager: AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this, arrayOf(
                 Manifest.permission.SEND_SMS, Manifest.permission.RECEIVE_SMS,
-                Manifest.permission.READ_PHONE_NUMBERS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG),
+                Manifest.permission.READ_PHONE_NUMBERS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG,
+                    Manifest.permission.READ_SMS),
                 111)
         }
     }
