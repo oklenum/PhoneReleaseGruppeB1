@@ -7,6 +7,12 @@ import com.groupb1.phonefreedom.data.Preset
 import java.lang.IllegalArgumentException
 import kotlin.random.Random
 
+/*
+Presets w/ recycler view implemented with inspiration from:
+https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView
+https://github.com/android/views-widgets-samples
+ */
+
 class PresetsListViewModel(val dataSource: DataSource) : ViewModel() {
 
     val presetsLiveData = dataSource.getPresetList()

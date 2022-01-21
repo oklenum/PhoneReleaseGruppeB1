@@ -7,6 +7,12 @@ import com.groupb1.phonefreedom.data.DataSource
 import com.groupb1.phonefreedom.data.Preset
 import java.lang.IllegalArgumentException
 
+/*
+Presets w/ recycler view implemented with inspiration from:
+https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView
+https://github.com/android/views-widgets-samples
+ */
+
 class PresetDetailViewModel(private val dataSource: DataSource) : ViewModel() {
 
     fun getPresetForId(id: Long) : Preset? {

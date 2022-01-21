@@ -1,10 +1,10 @@
 package com.groupb1.phonefreedom.presetList
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +12,12 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import com.groupb1.phonefreedom.R
 import com.groupb1.phonefreedom.data.Preset
 import com.groupb1.phonefreedom.data.Reply
-import com.groupb1.phonefreedom.services.ServiceAutoReply
+
+/*
+Presets w/ recycler view implemented with inspiration from:
+https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView
+https://github.com/android/views-widgets-samples
+ */
 
 class PresetsAdapter(private val onClick: (Preset) -> Unit) :
     ListAdapter<Preset, PresetsAdapter.PresetViewHolder>(PresetDiffCallback) {

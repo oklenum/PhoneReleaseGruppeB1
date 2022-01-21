@@ -12,6 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.groupb1.phonefreedom.R
 
+/*
+Presets w/ recycler view implemented with inspiration from:
+https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView
+https://github.com/android/views-widgets-samples
+ */
 
 const val PRESET_NAME = "name"
 const val PRESET_DESCRIPTION = "description"

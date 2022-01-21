@@ -9,11 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.groupb1.phonefreedom.PRESET_ID
 import com.groupb1.phonefreedom.R
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PresetDetailActivity.newInstance] factory method to
- * create an instance of this fragment.
+/*
+Presets w/ recycler view implemented with inspiration from:
+https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView
+https://github.com/android/views-widgets-samples
  */
+
 class PresetDetailActivity : AppCompatActivity() {
 
     private val presetDetailViewModel by viewModels<PresetDetailViewModel> {

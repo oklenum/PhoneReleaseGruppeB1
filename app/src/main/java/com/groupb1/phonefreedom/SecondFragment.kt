@@ -113,7 +113,8 @@ class SecondFragment : Fragment() {
         val intent = Intent(context, Receiver::class.java)
 
         intent.action = "StopServices"
-        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
+            PendingIntent.FLAG_IMMUTABLE)
 
         val calendar = Calendar.getInstance()
         val calSet = calendar.clone() as Calendar

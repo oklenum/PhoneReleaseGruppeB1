@@ -4,6 +4,12 @@ import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
+/*
+Presets w/ recycler view implemented with inspiration from:
+https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView
+https://github.com/android/views-widgets-samples
+ */
+
 class DataSource(resources: Resources) {
     private val initialPresetList = presetList(resources)
     private val presetsLiveData = MutableLiveData(initialPresetList)
