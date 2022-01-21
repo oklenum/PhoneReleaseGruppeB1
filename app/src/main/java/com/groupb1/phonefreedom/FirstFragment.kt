@@ -1,5 +1,6 @@
 package com.groupb1.phonefreedom
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
@@ -42,11 +43,7 @@ import com.groupb1.phonefreedom.services.ServiceDisturb
 import java.sql.Time
 import java.time.LocalTime
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FirstFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 const val PRESET_ID = "preset id"
 
 class FirstFragment : Fragment() {
@@ -74,6 +71,7 @@ class FirstFragment : Fragment() {
         }
     }
 
+    @SuppressLint("WeekBasedYear")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -87,8 +85,8 @@ class FirstFragment : Fragment() {
         val currentDate = LocalDate.now()
         val formatDate = DateTimeFormatter.ofPattern("dd-MM-YYYY")
         val formattedDate = currentDate.format(formatDate)
-        var dateSet = LocalDate.now()
-        var dateSetFormatted = dateSet.format(formatDate)
+        var dateSet: LocalDate
+        var dateSetFormatted: String
 
 
         datePicker = DatePickerHelper(this.requireContext())
@@ -165,8 +163,6 @@ class FirstFragment : Fragment() {
                 val alert = alertBuilder.create()
                 alert.show()
             }
-
-
         }
 
         settingsButton.setOnClickListener {
@@ -180,13 +176,6 @@ class FirstFragment : Fragment() {
                 Navigation.findNavController(view).navigate(
                 R.id.action_firstFragment_to_permissionFragment)
             }
-        }
-
-        if (EasyPermissions.hasPermissions(requireContext(),
-            android.Manifest.permission.ACCESS_NOTIFICATION_POLICY)) {
-
-        } else {
-
         }
 
         val alertBuilder = AlertDialog.Builder(requireActivity())
@@ -224,7 +213,7 @@ class FirstFragment : Fragment() {
 
         return view
     }
-
+    @SuppressLint("WeekBasedYear", "SetTextI18n")
     private fun showTimePickerDialog() {
         val cal = Calendar.getInstance()
         val h = cal.get(Calendar.HOUR_OF_DAY)
@@ -238,7 +227,7 @@ class FirstFragment : Fragment() {
         })
 
     }
-
+    @SuppressLint("WeekBasedYear", "SetTextI18n")
     private fun showDatePickerDialog() {
         val cal = Calendar.getInstance()
         val d = cal.get(Calendar.DAY_OF_MONTH)

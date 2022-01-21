@@ -1,5 +1,6 @@
 package com.groupb1.phonefreedom
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -24,7 +25,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import com.groupb1.phonefreedom.appManager.DnDOffActivity
-import com.groupb1.phonefreedom.appManager.Receiver
+import com.groupb1.phonefreedom.receivers.Receiver
 import com.groupb1.phonefreedom.data.CheckSer
 import java.util.*
 
@@ -59,6 +60,7 @@ class SecondFragment : Fragment() {
 
     }
 
+    @SuppressLint("WeekBasedYear", "SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,7 +71,7 @@ class SecondFragment : Fragment() {
 
         val currentTime = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("HH:mm")
-        val formatted = currentTime.format(formatter).toString()
+        currentTime.format(formatter).toString()
         val currentDate = LocalDate.now()
         val formatDate = DateTimeFormatter.ofPattern("dd-MM-YYYY")
         val formattedDate = currentDate.format(formatDate).toString()
@@ -100,6 +102,7 @@ class SecondFragment : Fragment() {
         return view
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -119,22 +122,12 @@ class SecondFragment : Fragment() {
         calSet.set(Calendar.SECOND, 0)
         calSet.set(Calendar.MILLISECOND, 0)
 
-        val msUntilTriggerHour: Long = 10000
 
-        val alarmTimeAtUTC: Long = calendar.timeInMillis - System.currentTimeMillis()
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            alarmManager.setAlarmClock(
-                AlarmManager.AlarmClockInfo(calSet.timeInMillis, pendingIntent),
-                pendingIntent
-            )
-        } else {
-            alarmManager.setExactAndAllowWhileIdle(
-                AlarmManager.RTC_WAKEUP,
-                calSet.timeInMillis,
-                pendingIntent
-            )
-        }
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            calSet.timeInMillis,
+            pendingIntent
+        )
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

@@ -49,9 +49,5 @@ class DataSource(resources: Resources) {
                 newInstance
             }
         }
-
-        fun editPresetDescription() {
-
-        }
     }
 }

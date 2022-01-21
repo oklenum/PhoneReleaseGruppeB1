@@ -3,7 +3,7 @@
     <string name="phone_freed" translatable="false">Phone Release</string>
     <string name="textview" translatable="false">TextView</string>
     <string name="todo" translatable="false">TODO</string>
-    <string name="todo1" translatable="false">TODO1</string>
+    <string name="todo1" translatable="false">TODO!</string>
     <string name="hello">Velkommen til Phone Release,</string>
     <string name="check">Kontrol af tilladelser</string>
     <string name="deactivate">Deaktiver</string>
@@ -51,6 +51,5 @@
     <string name="phonefreedom_is_on">Phone Release is ON!</string>
     <string name="activate">Aktiver</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

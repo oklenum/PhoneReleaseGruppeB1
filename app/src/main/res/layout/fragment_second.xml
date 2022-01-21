@@ -68,7 +68,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintVertical_bias="0.333"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/deactivateString"
@@ -86,7 +87,7 @@
             android:gravity="center"
             android:text="@string/deactivate"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="34sp" />
     </RelativeLayout>
 
     <ImageView
@@ -202,15 +203,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/phone_freed"
-        app:layout_constraintVertical_bias="0.44" /><![CDATA[
+        app:layout_constraintVertical_bias="0.44" />
 
-
-
-    app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
-
-
-
-
-]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

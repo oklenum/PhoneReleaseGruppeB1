@@ -38,32 +38,22 @@ class ServiceDisturb : Service() {
             }
         }
         registerReceiver(mReceiver, IntentFilter("Service Active"))
-        /*
-            NotificationManager
-                Class to notify the user of events that happen. This is how you tell
-                the user that something has happened in the background.
-        */
-        // Get the notification manager instance
+
         mNotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        // Turns on DnD
-
-
-        //changeInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
 
     }
     private fun changeInterruptionFilter(interruptionFilter: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // If api level minimum 23
-            // If notification policy access granted for this package
-            if (mNotificationManager!!.isNotificationPolicyAccessGranted) {
+        // If api level minimum 23
+        // If notification policy access granted for this package
+        if (mNotificationManager.isNotificationPolicyAccessGranted) {
 
-                // Set the interruption filter
-                mNotificationManager!!.setInterruptionFilter(interruptionFilter)
-            } else {
-                // If notification policy access not granted for this package
-                val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
-                startActivity(intent)
-            }
+            // Set the interruption filter
+            mNotificationManager.setInterruptionFilter(interruptionFilter)
+        } else {
+            // If notification policy access not granted for this package
+            val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+            startActivity(intent)
         }
     }
 
@@ -74,7 +64,6 @@ class ServiceDisturb : Service() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 createNotificationChannel("my_service", "My Background Service")
             } else {
-                // If earlier version channel ID is not used
                 ""
             }
 

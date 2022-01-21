@@ -1,12 +1,12 @@
-package com.groupb1.phonefreedom.appManager
+package com.groupb1.phonefreedom.receivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import com.groupb1.phonefreedom.appManager.DnDOffActivity
 import com.groupb1.phonefreedom.data.CheckSer
 import com.groupb1.phonefreedom.services.ServiceAutoReply
-import com.groupb1.phonefreedom.services.ServiceDisturb
 
 class Receiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {

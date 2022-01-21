@@ -50,10 +50,8 @@ class PresetsAdapter(private val onClick: (Preset) -> Unit) :
 
     /* Gets current preset and uses it to bind view. */
     override fun onBindViewHolder(holder: PresetViewHolder, position: Int) {
-        val serviceAutoReply = ServiceAutoReply()
         val preset = getItem(position)
-        val context = holder.itemView.context
-        //var currentPreset = Reply.description
+        holder.itemView.context
         holder.bind(preset)
 
         holder.presetSwitch.setOnClickListener {

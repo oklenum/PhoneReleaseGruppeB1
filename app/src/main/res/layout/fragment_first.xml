@@ -60,7 +60,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintVertical_bias="0.333"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/activateString"
@@ -78,7 +79,7 @@
             android:gravity="center"
             android:text="@string/activate"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="34sp" />
 
     </RelativeLayout>
 
@@ -104,7 +105,8 @@
             android:layout_marginTop="31dp"
             android:layout_marginBottom="31dp"
             android:background="#00FFFFFF"
-            app:srcCompat="@drawable/button_date" />
+            app:srcCompat="@drawable/button_date"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/selectDateBtn"
@@ -119,7 +121,8 @@
             android:layout_marginBottom="31dp"
             android:layout_toEndOf="@+id/selectTimeBtn"
             android:background="#00FFFFFF"
-            app:srcCompat="@drawable/button_date" />
+            app:srcCompat="@drawable/button_date"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/timeView"
@@ -187,7 +190,8 @@
         app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintStart_toEndOf="@+id/phone_freed"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vectorsetting" />
+        app:srcCompat="@drawable/vectorsetting"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/button3"
